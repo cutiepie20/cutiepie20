@@ -1,58 +1,123 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Atilla Pramudya - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
-        rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atilla Pramudya | Network Engineer</title>
+    <meta name="description" content="Portfolio of Atilla Pramudya iPhone - Network Engineer & IoT Developer">
+
+    <!-- Favicon: Satellite Dish Emoji -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
+
+    <!-- Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons: Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: "class",
+            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        "primary": "#5397B9",
-                        "background-light": "#F4F2E8",
-                        "background-dark": "#15181d",
-                        "dark-navy": "#111318",
-                    },
                     fontFamily: {
-                        "display": ["Inter", "sans-serif"],
-                        "body": ["Inter", "sans-serif"]
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
                     },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
+                    colors: {
+                        background: {
+                            light: '#F4F2E8', // Warm Cream
+                            dark: '#0F1115',  // Deep Engineering Navy
+                        },
+                        primary: {
+                            DEFAULT: '#5397B9', // Ocean Tech Blue
+                            hover: '#427A96',
+                        },
+                        accent: {
+                            DEFAULT: '#F5D991', // Innovation Gold
+                        },
+                        surface: {
+                            light: '#FFFFFF',
+                            dark: '#1A1D24',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
         }
     </script>
+
     <style>
+        /* Custom Styles */
         body {
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
+        /* Blueprint Pattern for Footer */
+        .bg-blueprint {
+            background-color: #0F1115;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
-        .hide-scrollbar::-webkit-scrollbar {
+        /* Hide Scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
 
-        .hide-scrollbar {
+        .no-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
 
-        /* Modal Animation */
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .glass {
+            background: rgba(15, 17, 21, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Header Transition */
+        #main-header {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Modal Transitions */
         .modal {
             opacity: 0;
             visibility: hidden;
@@ -72,242 +137,343 @@
         .modal.active .modal-content {
             transform: scale(1);
         }
+
+        /* Pill Styles */
+        .skill-pill {
+            @apply px-4 py-2 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-primary hover:text-primary transition-colors cursor-default select-none shadow-sm;
+        }
     </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-dark-navy dark:text-gray-100 min-h-screen flex flex-col">
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <!-- Header -->
-    <header
-        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/10 px-6 py-4 lg:px-40 transition-all duration-300">
-        <div class="flex items-center justify-between max-w-[1200px] mx-auto w-full">
-            <div class="flex items-center gap-3">
-                <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
-                    <span class="material-symbols-outlined text-xl">settings_input_antenna</span>
+    <!-- Smart Header -->
+    <header id="main-header" class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div
+                    class="size-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl animate-pulse-slow">settings_input_antenna</span>
                 </div>
-                <h2 class="text-dark-navy dark:text-white text-lg lg:text-xl font-black leading-tight tracking-tight">
-                    <span class="md:hidden">APN</span>
-                    <span class="hidden md:inline">Atilla Pramudya</span>
-                </h2>
-            </div>
-            <div class="hidden md:flex flex-1 justify-end gap-10">
-                <nav class="flex items-center gap-9">
-                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
-                        href="#about">About</a>
-                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
-                        href="#experience">Experience</a>
-                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
-                        href="#projects">Projects</a>
-                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
-                        href="#community">Community</a>
-                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
-                        href="#certifications">Certificates</a>
-                </nav>
-                <a href="assets/documents/CV%20ATS%20Atilla%20P.N.pdf" download
-                    class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
-                    <span>Download CV</span>
-                </a>
-            </div>
-            <div class="md:hidden">
-                <button
-                    class="flex size-10 items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-sm border border-black/5 dark:border-white/10 text-primary">
-                    <span class="material-symbols-outlined">menu</span>
+                <!-- FIXED: Full Name -->
+                <div class="flex flex-col leading-none">
+                    <span class="font-display font-bold text-lg tracking-tight">Atilla Pramudya Nugroho</span>
+                    <span
+                        class="text-[10px] text-gray-500 dark:text-gray-400 font-mono tracking-widest uppercase">Network
+                        Engineer</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8">
+                <ul class="flex gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
+                    <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+                    <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
+                    <li><a href="#education" class="hover:text-primary transition-colors">Education</a></li>
+                    <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
+                </ul>
+
+                <div class="h-6 w-px bg-gray-300 dark:bg-gray-700"></div>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle"
+                    class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
+                    aria-label="Toggle Dark Mode">
+                    <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block text-accent">light_mode</span>
                 </button>
-            </div>
+
+                <!-- CV Button -->
+                <a href="assets/documents/CV%20ATS%20Atilla%20P.N.pdf" download
+                    class="px-5 py-2.5 bg-primary hover:bg-primary-hover text-white text-sm font-bold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                    <span>Download CV</span>
+                    <span class="material-symbols-outlined text-sm">download</span>
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden p-2 text-gray-800 dark:text-white">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
         </div>
     </header>
 
-    <main class="flex-1 pb-32 md:pb-0">
+    <main class="pt-24 pb-24 md:pb-0">
 
         <!-- Hero Section -->
-        <section id="about" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
-            <div class="max-w-[1200px] w-full mx-auto">
-                <div class="flex flex-col items-center gap-6 md:hidden text-center">
-                    <!-- Mobile Avatar -->
-                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-32 w-32 border-4 border-white dark:border-gray-800 shadow-lg"
-                        style='background-image: url("./assets/images/profile.jpg");'>
+        <section id="about" class="min-h-[90vh] flex items-center px-6 py-10">
+            <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+
+                <!-- Hero Content -->
+                <div class="order-2 md:order-1 flex flex-col gap-6" data-aos="fade-right">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary w-fit border border-primary/20">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        <span class="text-xs font-bold tracking-wider uppercase">Open to Work</span>
                     </div>
-                    <div class="flex flex-col items-center text-center gap-2">
-                        <h1 class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight">
-                            Atilla Pramudya Nugroho</h1>
-                        <p class="text-primary font-semibold text-sm uppercase tracking-widest">Telecom Engineer & IoT
-                            Developer</p>
-                        <div class="flex gap-4 mt-2">
-                            <a class="text-primary flex items-center gap-1 font-medium text-sm"
-                                href="mailto:atillapramudya2004@gmail.com"><span
-                                    class="material-symbols-outlined text-lg">mail</span> Email</a>
-                            <a class="text-primary flex items-center gap-1 font-medium text-sm"
-                                href="https://www.linkedin.com/in/atillaprmdya" target="_blank"><img
-                                    src="./assets/images/linkedin_icon.png" class="size-5 rounded-full" alt="LinkedIn">
-                                LinkedIn</a>
-                            <a class="text-primary flex items-center gap-1 font-medium text-sm"
-                                href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank"><img
-                                    src="./assets/images/instagram_icon.png" class="size-5 rounded-full" alt="IG">
-                                Instagram</a>
+
+                    <h1 class="text-4xl lg:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                        Engineering the Future of <span
+                            class="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Connectivity</span>
+                    </h1>
+
+                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-lg leading-relaxed">
+                        I bridge the gap between hardware and intelligence. Specialized in <b>IoT Development</b>,
+                        <b>Fiber Optic Infrastructure</b>, and <b>Network Engineering</b>.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mt-2">
+                        <a href="#projects"
+                            class="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                            View Work
+                        </a>
+                        <div class="flex gap-2">
+                            <a href="https://www.linkedin.com/in/atillaprmdya" target="_blank"
+                                class="size-12 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:scale-110 transition-transform shadow-sm overflow-hidden p-0.5">
+                                <img src="./assets/images/linkedin_icon.png"
+                                    class="w-full h-full object-cover rounded-full" alt="LinkedIn">
+                            </a>
+                            <a href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank"
+                                class="size-12 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:scale-110 transition-transform shadow-sm overflow-hidden p-0.5">
+                                <img src="./assets/images/instagram_icon.png"
+                                    class="w-full h-full object-cover rounded-full" alt="Instagram">
+                            </a>
+                            <a href="mailto:atillapramudya2004@gmail.com"
+                                class="size-12 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:scale-110 transition-transform shadow-sm group">
+                                <span
+                                    class="material-symbols-outlined text-gray-900 dark:text-white group-hover:text-primary transition-colors">mail</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div
+                        class="grid grid-cols-3 gap-6 mt-8 p-6 bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                        <div>
+                            <span class="block text-2xl font-bold text-gray-900 dark:text-white">3+</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Years Exp</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold text-primary">Top 50</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Innovillage</span>
+                        </div>
+                        <div>
+                            <!-- UPDATED: Funding Stat -->
+                            <span class="block text-2xl font-bold text-accent">Rp 71M+</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">CSR & Funding Grant</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="hidden md:flex flex-col gap-10 lg:flex-row items-center">
-                    <div class="flex flex-col gap-8 flex-1 lg:justify-center">
-                        <div class="flex flex-col gap-4 text-left">
-                            <span class="text-primary font-bold tracking-wider uppercase text-sm">Telecommunication
-                                Engineering Student</span>
-                            <h1
-                                class="text-dark-navy dark:text-white text-5xl lg:text-6xl font-black leading-[1.1] tracking-[-0.033em]">
-                                Engineering the Future of <span class="text-primary">Connectivity</span>
-                            </h1>
-                            <p
-                                class="text-dark-navy/70 dark:text-gray-400 text-lg font-normal leading-relaxed max-w-[600px]">
-                                Telkom University student with a deep interest in Fiber Optic (GPON), BTS
-                                infrastructure, and IoT development. Dedicated to optimizing network reliability and
-                                performance.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-4">
-                            <div class="flex gap-4 items-center">
-                                <a class="flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-md text-primary hover:scale-110 transition-transform overflow-hidden"
-                                    href="https://www.linkedin.com/in/atillaprmdya" target="_blank">
-                                    <img src="./assets/images/linkedin_icon.png" alt="LinkedIn"
-                                        class="w-full h-full object-cover">
-                                </a>
-                                <a class="flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-md text-primary hover:scale-110 transition-transform overflow-hidden"
-                                    href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank">
-                                    <img src="./assets/images/instagram_icon.png" alt="Instagram"
-                                        class="w-full h-full object-cover">
-                                </a>
-                                <a class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-8 bg-primary text-white text-base font-bold shadow-md hover:bg-primary/90 transition-all"
-                                    href="mailto:atillapramudya2004@gmail.com">
-                                    <span>Contact Me</span>
-                                </a>
-                            </div>
-                        </div>
+                <!-- Hero Image -->
+                <div class="order-1 md:order-2 relative" data-aos="fade-left">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3 scale-105 -z-10">
                     </div>
-                    <!-- Desktop Avatar -->
-                    <div class="w-full lg:w-[480px] h-[520px] bg-center bg-no-repeat bg-cover rounded-2xl shadow-xl overflow-hidden relative group"
-                        style='background-image: url("./assets/images/profile.jpg");'>
+                    <div
+                        class="aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 relative bg-gray-200">
+                        <!-- Profile Image -->
+                        <img src="./assets/images/profile.jpg" alt="Atilla Pramudya" class="w-full h-full object-cover">
+                        <!-- Floating Badge -->
                         <div
-                            class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-all duration-300">
+                            class="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-black/80 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="size-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                    <span class="material-symbols-outlined">bolt</span>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase">Current
+                                        Focus</p>
+                                    <p class="text-sm font-bold text-gray-900 dark:text-white">IoT Smart Village
+                                        Solutions</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- UPDATED: Technologies & Tools (Skill Pills) -->
+        <div class="w-full py-12 border-y border-white/10" data-aos="fade-in">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Technologies & Tools</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="skill-pill">Fiber Optic Splicing</span>
+                    <span class="skill-pill">GPON Infrastructure</span>
+                    <span class="skill-pill">IoT (ESP32)</span>
+                    <span class="skill-pill">Network Administration</span>
+                    <span class="skill-pill">Cisco Packet Tracer</span>
+                    <span class="skill-pill">Linux / Debian</span>
+                    <span class="skill-pill">Python</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Experience Section -->
-        <section id="experience" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
-            <div class="max-w-[1200px] mx-auto">
-                <h2
-                    class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight mb-8 md:mb-12 border-l-4 border-primary pl-6">
-                    Professional Experience</h2>
+        <section id="experience" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center gap-4 mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Professional
+                        Experience</h2>
+                    <div class="h-1 flex-1 bg-gray-200 dark:bg-gray-800 rounded-full"></div>
+                </div>
 
-                <div class="flex flex-col gap-8">
-                    <!-- PLN -->
-                    <div
-                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm relative overflow-hidden group hover:border-primary/50 transition-all">
-                        <div
-                            class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full group-hover:bg-primary/10 transition-colors">
-                        </div>
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6">
+                <div class="space-y-8">
+                    <!-- Job 1 -->
+                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+                        data-aos="fade-up">
+                        <!-- DELETED: Top right icon decorative element -->
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
                             <div>
-                                <h3 class="text-2xl font-black text-dark-navy dark:text-white">PLN Icon Plus</h3>
-                                <p class="text-primary font-bold">Engineering Activation & Maintenance</p>
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">PLN Icon Plus</h3>
+                                <p class="text-primary font-semibold">Engineering Activation & Maintenance</p>
                             </div>
-                            <div class="flex flex-col md:items-end gap-1">
+                            <div class="text-right">
                                 <span
-                                    class="text-sm font-bold px-4 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">May
+                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">May
                                     2023 – Sep 2024</span>
-                                <span class="text-xs text-gray-500 font-mono text-right">Internship</span>
                             </div>
                         </div>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-dark-navy/70 dark:text-gray-400">
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
-                                <span>Activation and installation of Iconnet network from provider to customer
-                                    premises.</span>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                Activation and installation of Iconnet network from provider to customer premises.
                             </li>
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
-                                <span>Ensured execution of Occupational Health and Safety (K3) standards in every
-                                    activation process.</span>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                Ensured execution of K3 (Occupational Health and Safety) standards.
                             </li>
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
-                                <span>Performed fiber optic cable jointing in cases of Link LOSS indications.</span>
-                            </li>
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
-                                <span>Inspected FAT (Fiber Access Termination) standards (13dbm - 24dbm) prior to
-                                    installation.</span>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                Performed fiber optic cable jointing for Link LOSS recovery.
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Telkom Valins -->
-                    <div
-                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm relative overflow-hidden group hover:border-primary/50 transition-all">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6">
+                    <!-- Job 2 -->
+                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
                             <div>
-                                <h3 class="text-2xl font-black text-dark-navy dark:text-white">Telkom Witel Bogor</h3>
-                                <p class="text-primary font-bold">Valins Service</p>
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Telkom Witel Bogor</h3>
+                                <p class="text-primary font-semibold">Valins Service - Technical Assistant</p>
                             </div>
-                            <div class="flex flex-col md:items-end gap-1">
+                            <div class="text-right">
                                 <span
-                                    class="text-sm font-bold px-4 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">Aug
+                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Aug
                                     2022 – Dec 2022</span>
-                                <span class="text-xs text-gray-500 font-mono text-right">Technical Assistant</span>
                             </div>
                         </div>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-dark-navy/70 dark:text-gray-400">
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">inventory</span>
-                                <span>Adjusted ODP data in the Oracle UIM Telkom system to match field
-                                    conditions.</span>
+                        <ul class="grid md:grid-cols-2 gap-4 text-gray-600 dark:text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">inventory</span>
+                                Adjusted ODP data in Oracle UIM Telkom system.
                             </li>
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">verified</span>
-                                <span>Conducted field visits for Indihome FTTH network construction per Telkom
-                                    SOP.</span>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">verified</span>
+                                Conducted field visits for Indihome FTTH network construction.
                             </li>
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">map</span>
-                                <span>Mapped and marked ODC to ODP Indihome routes in Google Earth.</span>
-                            </li>
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
-                                <span>Validated via Valins web to ensure accurate port usage in Indihome ODPs.</span>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">map</span>
+                                Mapped ODC to ODP routes in Google Earth.
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Telkom Access Data -->
-                    <div
-                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm relative overflow-hidden group hover:border-primary/50 transition-all">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6">
+                    <!-- Job 3 -->
+                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
                             <div>
-                                <h3 class="text-2xl font-black text-dark-navy dark:text-white">Telkom Witel Bogor</h3>
-                                <p class="text-primary font-bold">Access Data Management</p>
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Telkom Witel Bogor</h3>
+                                <p class="text-primary font-semibold">Access Data Management - Internship</p>
                             </div>
-                            <div class="flex flex-col md:items-end gap-1">
+                            <div class="text-right">
                                 <span
-                                    class="text-sm font-bold px-4 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">Jun
+                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Jun
                                     2022 – Aug 2022</span>
-                                <span class="text-xs text-gray-500 font-mono text-right">Internship</span>
                             </div>
                         </div>
-                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-dark-navy/70 dark:text-gray-400">
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">engineering</span>
-                                <span>Monitored provisioning technicians during installation and maintenance.</span>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">visibility</span>
+                                Monitored provisioning technicians and observed FTTH operational processes via STO
+                                visits.
                             </li>
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">visibility</span>
-                                <span>Observed FTTH operational processes via STO (Sentral Telepon Otomat)
-                                    visits.</span>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Education -->
+        <section id="education" class="py-20 px-6 bg-gray-50 dark:bg-[#12141a]">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center gap-4 mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Education</h2>
+                    <div class="h-1 flex-1 bg-gray-200 dark:bg-gray-800 rounded-full"></div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- University -->
+                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+                        data-aos="fade-up">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Telkom University Jakarta
+                                </h3>
+                                <p class="text-primary font-semibold">S1 Telecommunication Engineering (GPA 3.78)</p>
+                            </div>
+                            <div class="text-right">
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Current</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Focused on Project Management, Network Infrastructure, and Community Service initiatives.
+                        </p>
+                    </div>
+
+                    <!-- High School / SMK -->
+                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex flex-col md:flex-row justify-between mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">SMK Al Muhtadin Depok</h3>
+                                <p class="text-primary font-semibold">Engineering Network & Computer</p>
+                            </div>
+                            <div class="text-right">
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">2020
+                                    - 2023</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">school</span>
+                                Lulusan dengan nilai: 84.
                             </li>
-                            <li class="flex gap-3 items-start"><span
-                                    class="material-symbols-outlined text-primary text-xl shrink-0">inventory_2</span>
-                                <span>Supported FTTH network construction field visits.</span>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+                                Siswa aktif dalam kegiatan akademik vokasi.
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">terminal</span>
+                                Mempelajari sistem operasi Debian Linux (Instalasi, Konfigurasi, Troubleshooting).
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">router</span>
+                                Network Basics: Protocols, Subnetting, Routing, Switching (Mikrotik & Cisco Packet
+                                Tracer).
                             </li>
                         </ul>
                     </div>
@@ -316,296 +482,206 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
-            <div class="max-w-[1200px] mx-auto">
-                <h2
-                    class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight mb-8 md:mb-12 border-l-4 border-primary pl-6">
-                    Key Projects & Competitions</h2>
+        <section id="projects" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16" data-aos="zoom-in">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Featured Projects
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Blending hardware innovation with
+                        real-world impact. From national competitions to digitalizing villages.</p>
+                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- SAVIA -->
-                    <div
-                        class="group flex flex-col bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-[#d5d9e1] dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="h-64 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                            style="background-image: url('./assets/images/projects/savia.jpg');">
-                            <div class="p-6 h-full bg-black/50 flex flex-col justify-end">
-                                <span
-                                    class="px-3 py-1 bg-green-500 text-white text-[12px] font-bold uppercase rounded w-fit mb-2">CSR
-                                    Funding Rp 50M</span>
-                                <h3 class="text-white text-2xl font-black">SAVIA Project</h3>
-                                <p class="text-white/80 text-sm">Oct 2025 - Dec 2025</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- UPDATED: Siaga Galuga (Primary Feature) -->
+                    <div class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-2xl transition-all group"
+                        data-aos="fade-up">
+                        <div class="h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                            style="background-image: url('./assets/images/projects/galuga.png');">
+                            <div class="w-full h-full bg-black/40 flex items-end p-4">
+                                <span class="bg-accent text-black text-xs font-bold px-3 py-1 rounded shadow-lg">New
+                                    Feature</span>
                             </div>
                         </div>
-                        <div class="p-6 lg:p-8 flex flex-col flex-1">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-primary font-bold text-sm">Project Leader</span>
-                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold">Telkom
-                                    CSR</span>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Siaga Galuga</h3>
+                                    <p class="text-xs font-mono text-primary uppercase">IoT Smart Village Security</p>
+                                </div>
+                                <span
+                                    class="text-xs text-gray-500 font-bold bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Dec
+                                    2025</span>
                             </div>
-                            <p class="text-dark-navy/60 dark:text-gray-400 text-sm mb-6 grow">
-                                Led the "SAVIA" implementation focusing on clean water sanitation. Managed a Rp 50M
-                                grant to build an IoT-based water distribution system and real-time digital dashboard.
-                                Coordinated field teams and stakeholder reporting.
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                                Developed an IoT-based smart alarm and security warning system to accelerate village
+                                digitalization. Solved critical real-time environmental monitoring and security risks.
                             </p>
-                            <div class="flex flex-wrap gap-2 mt-auto">
+                            <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-gray-300 text-[10px] font-bold uppercase rounded">IoT
-                                    Dashboard</span>
+                                    class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">98%
+                                    Satisfaction</span>
                                 <span
-                                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-gray-300 text-[10px] font-bold uppercase rounded">Water
-                                    Management</span>
+                                    class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">IoT
+                                    Security</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Harmony-IoT -->
-                    <div
-                        class="group flex flex-col bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-[#d5d9e1] dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-300">
-                        <div class="h-64 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                            style="background-image: url('./assets/images/projects/harmony.jpg');">
-                            <div class="p-6 h-full bg-black/50 flex flex-col justify-end">
-                                <span
-                                    class="px-3 py-1 bg-primary text-white text-[12px] font-bold uppercase rounded w-fit mb-2">Top
-                                    50 National (Rank 9)</span>
-                                <h3 class="text-white text-2xl font-black">Harmony-IoT</h3>
-                                <p class="text-white/80 text-sm">Dec 2024 - Feb 2025</p>
+                    <!-- UPDATED: SAVIA -->
+                    <div class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-2xl transition-all group"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                            style="background-image: url('./assets/images/projects/savia.jpg');">
+                            <div class="w-full h-full bg-black/40 flex items-end p-4">
+                                <span class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded shadow-lg">Rp
+                                    50M Funding</span>
                             </div>
                         </div>
-                        <div class="p-6 lg:p-8 flex flex-col flex-1">
-                            <div class="flex justify-between items-center mb-4">
-                                <span class="text-primary font-bold text-sm">Team Leader</span>
-                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold">Innovillage
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">SAVIA Project</h3>
+                                    <p class="text-xs font-mono text-primary uppercase">Project Leader</p>
+                                </div>
+                                <span
+                                    class="text-xs text-gray-500 font-bold bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Nov
+                                    2025</span>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                                IoT-based water distribution system. Mendapatkan bantuan CSR dari PT Telkom Indonesia.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Solar
+                                    Cell</span>
+                                <span
+                                    class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Water
+                                    Filtration</span>
+                                <span
+                                    class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Mikrokontroller/IoT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UPDATED: Harmony IoT -->
+                    <div class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-2xl transition-all group"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
+                            style="background-image: url('./assets/images/projects/harmony.jpg');">
+                            <div class="w-full h-full bg-black/40 flex items-end p-4">
+                                <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded shadow-lg">Top 50
+                                    National</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Harmony-IoT</h3>
+                                    <p class="text-xs font-mono text-primary uppercase">Team Leader</p>
+                                </div>
+                                <span
+                                    class="text-xs text-gray-500 font-bold bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Dec
                                     2024</span>
                             </div>
-                            <p class="text-dark-navy/60 dark:text-gray-400 text-sm mb-6 grow">
-                                Led team "Musketeers". Designed a renewable energy (pico hydro & solar) water storage
-                                system with automated pH monitoring. Focused on improving rural quality of life through
-                                sustainable tech.
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                                Designed a renewable energy (pico hydro & solar) water storage system with automated pH
+                                monitoring. <b>Secured funding of Rp 21 Million from Innovillage 2024.</b>
                             </p>
-                            <div class="flex flex-wrap gap-2 mt-auto">
+                            <div class="flex flex-wrap gap-2">
                                 <span
-                                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-gray-300 text-[10px] font-bold uppercase rounded">Renewable
-                                    Energy</span>
+                                    class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Solar
+                                    Cell</span>
                                 <span
-                                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-gray-300 text-[10px] font-bold uppercase rounded">Smart
-                                    System</span>
+                                    class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Smart
+                                    System Water Monitoring</span>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Community Service Section (NEW) -->
-        <section id="community" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
-            <div class="max-w-[1200px] mx-auto">
-                <h2
-                    class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight mb-8 md:mb-12 border-l-4 border-primary pl-6">
-                    Community Service</h2>
+        <!-- Community Service -->
+        <section id="community" class="py-20 px-6 bg-gray-50 dark:bg-[#12141a]">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-12 border-l-4 border-primary pl-6"
+                    data-aos="fade-right">Community Service</h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-2 gap-8">
                     <!-- Al Jambani -->
-                    <div
-                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm flex flex-col gap-4">
-                        <div
-                            class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-2">
-                            <span class="material-symbols-outlined text-2xl">diversity_3</span>
+                    <div class="bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm"
+                        data-aos="fade-up">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="size-12 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-2xl">diversity_3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Al Jambani Islamic Boarding
+                                </h3>
+                                <p class="text-sm text-gray-500 font-mono">Nov 2024</p>
+                            </div>
                         </div>
-                        <div>
-                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">November 2024</span>
-                            <h3 class="text-xl font-black text-dark-navy dark:text-white mb-2">Al Jambani Islamic
-                                Boarding School</h3>
-                            <p class="text-dark-navy/70 dark:text-gray-400 text-sm">
-                                Developed an analog blood type detection tool for students. Conducted direct training
-                                for students and teachers on usage and application.
-                            </p>
-                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">Developed an analog blood type detection tool for
+                            students. Conducted direct training for students and teachers.</p>
                     </div>
 
                     <!-- SLB Kuntum Mekar -->
-                    <div
-                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm flex flex-col gap-4">
-                        <div
-                            class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-2">
-                            <span class="material-symbols-outlined text-2xl">accessibility_new</span>
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">June 2024</span>
-                            <h3 class="text-xl font-black text-dark-navy dark:text-white mb-2">SLB Kuntum Mekar, Jakarta
-                            </h3>
-                            <p class="text-dark-navy/70 dark:text-gray-400 text-sm">
-                                Developed a blood type detection tool as a learning media for special needs students.
-                                Designed to support interactive biological education tailored to student needs.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Siaga Galuga -->
-                    <div
-                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm flex flex-col gap-4 md:col-span-2 lg:col-span-1">
-                        <div
-                            class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-2">
-                            <span class="material-symbols-outlined text-2xl">security</span>
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">December 2025</span>
-                            <h3 class="text-xl font-black text-dark-navy dark:text-white mb-2">Siaga Galuga: IoT Smart
-                                Village Security</h3>
-                            <p class="text-dark-navy/70 dark:text-gray-400 text-sm mb-2">
-                                Developed "SIAGA Galuga," an IoT-based smart alarm and security warning system to
-                                accelerate village digitalization. Solved critical issues regarding real-time
-                                environmental monitoring and security risks in the village.
-                            </p>
-                            <p class="text-primary font-bold text-sm">
-                                <span class="material-symbols-outlined text-sm align-middle">verified</span> Achieved
-                                98% satisfaction rate from village officials.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education & Leadership -->
-        <section id="education" class="px-6 lg:px-40 py-16 bg-background-light dark:bg-background-dark">
-            <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Education -->
-                <div>
-                    <div class="border-l-4 border-primary pl-6 mb-8">
-                        <h2 class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight">
-                            Education</h2>
-                    </div>
-                    <div class="flex flex-col gap-6">
-                        <!-- University -->
-                        <div
-                            class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm">
-                            <div class="flex gap-4 items-center mb-2">
-                                <span class="material-symbols-outlined text-primary text-4xl">school</span>
-                                <div>
-                                    <h3 class="text-xl font-bold dark:text-white">Telkom University Jakarta</h3>
-                                    <p class="text-dark-navy/60 dark:text-gray-400">S1 Telecommunication Engineering |
-                                        2023 - Present</p>
-                                </div>
-                            </div>
-                            <div class="mt-4 border-t border-gray-100 dark:border-gray-800 pt-4">
-                                <p class="text-primary font-black text-2xl mb-2">GPA 3.78 <span
-                                        class="text-sm font-normal text-gray-400">(Semester 5)</span></p>
-                                <ul class="text-sm text-dark-navy/70 dark:text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Practicum Assistant for Telecommunication Traffic Network.</li>
-                                    <li>HMTT Non-academic division member.</li>
-                                    <li>Developed photodiode-based learning media for community service.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- SMK -->
-                        <div
-                            class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm opacity-80 hover:opacity-100 transition-opacity">
-                            <div class="flex gap-4 items-center mb-2">
-                                <span class="material-symbols-outlined text-primary text-4xl">engineering</span>
-                                <div>
-                                    <h3 class="text-lg font-bold dark:text-white">SMK Al Muhtadin Depok</h3>
-                                    <p class="text-dark-navy/60 dark:text-gray-400">Engineering Network & Computer |
-                                        2020 - 2023</p>
-                                </div>
-                            </div>
-                            <div class="mt-4 border-t border-gray-100 dark:border-gray-800 pt-4">
-                                <p class="font-bold text-dark-navy dark:text-white mb-2">Final Grade: 84</p>
-                                <ul class="text-sm text-dark-navy/70 dark:text-gray-400 list-disc ml-4 space-y-1">
-                                    <li>Debian Linux Administration (Install, Config, Troubleshoot).</li>
-                                    <li>Network Basics: Protocols, Subnetting, Routing, Switching (Mikrotik/Cisco).</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Leadership -->
-                <div>
-                    <div class="border-l-4 border-primary pl-6 mb-8">
-                        <h2 class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight">
-                            Leadership</h2>
-                    </div>
-                    <div
-                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm">
-                        <div class="flex gap-4 items-center mb-6">
-                            <span class="material-symbols-outlined text-primary text-4xl">diversity_2</span>
-                            <div>
-                                <h3 class="text-xl font-bold dark:text-white leading-tight">Project & Team Leadership
-                                </h3>
-                                <p class="text-dark-navy/60 dark:text-gray-400">Innovation & Community</p>
-                            </div>
-                        </div>
-
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="font-bold text-dark-navy dark:text-white flex items-center gap-2">
-                                    <span class="size-2 bg-primary rounded-full"></span> Project Leader - SAVIA
-                                </h4>
-                                <p class="text-sm text-dark-navy/70 dark:text-gray-400 mt-1 pl-4">
-                                    Directed a scalable IoT sanitation project with Rp 50M funding. Coordinated
-                                    technical implementation and community stakeholders to ensure successful system
-                                    deployment.
-                                </p>
+                    <div class="bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="size-12 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-2xl">accessibility_new</span>
                             </div>
                             <div>
-                                <h4 class="font-bold text-dark-navy dark:text-white flex items-center gap-2">
-                                    <span class="size-2 bg-primary rounded-full"></span> Team Leader - Harmony IoT
-                                </h4>
-                                <p class="text-sm text-dark-navy/70 dark:text-gray-400 mt-1 pl-4">
-                                    Led the "Musketeers" team in national competition (Top 9). Managed cross-functional
-                                    tasks between hardware engineering and software integration for rural water
-                                    solutions.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-dark-navy dark:text-white flex items-center gap-2">
-                                    <span class="size-2 bg-gray-400 rounded-full"></span> HMTT Department Representative
-                                </h4>
-                                <p class="text-sm text-dark-navy/70 dark:text-gray-400 mt-1 pl-4">
-                                    Active in Himpunan Mahasiswa Teknik Telekomunikasi, organizing workshops and
-                                    functioning as a liaison for departmental academic forums.
-                                </p>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white">SLB Kuntum Mekar</h3>
+                                <p class="text-sm text-gray-500 font-mono">Jun 2024</p>
                             </div>
                         </div>
+                        <p class="text-gray-600 dark:text-gray-400">Developed a blood type detection tool as interactive
+                            learning media for special needs students.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Certifications -->
-        <section id="certifications" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
-            <div class="max-w-[1200px] mx-auto">
-                <h2
-                    class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight mb-8 md:mb-12 border-l-4 border-primary pl-6">
+        <section id="certifications" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-12 text-center">
                     Professional Certifications</h2>
-                <p class="mb-8 text-dark-navy/60 dark:text-gray-400">Click on any certificate to view details.</p>
-
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Certificate Items (Populated with specific user data) -->
-                    <!-- Function to generate card -->
+                    <!-- JS will fill this -->
                     <script>
                         const certs = [
-                            { title: "Penerapan Jaringan Komputer", issuer: "BNSP", year: "2025", type: "National Competency", icon: "badge", pdf: "" },
-                            { title: "Network Administrator Muda", issuer: "BNSP", year: "2024", type: "National Competency", icon: "admin_panel_settings", pdf: "" },
-                            { title: "Network Administrator Muda", issuer: "Kemnaker RI", year: "2024", type: "Ministry Cert", icon: "security", pdf: "./assets/documents/Sertifikat%20Network%20Administrator%20Muda%20Kemnaker.pdf" },
-                            { title: "Networking Basics", issuer: "Cisco", year: "2024", type: "Global Standard", icon: "language", pdf: "" },
-                            { title: "Cisco Dasar", issuer: "ID-Networkers", year: "2024", type: "Technical Skill", icon: "router", pdf: "" },
-                            { title: "Jaringan Komputer Dasar", issuer: "ID-Networkers", year: "2024", type: "Foundation", icon: "settings_ethernet", pdf: "" },
-                            { title: "Optical Fiber Access Network (PON/FTTH)", issuer: "Udemy", year: "2023", type: "Specialization", icon: "fiber_manual_record", pdf: "" },
-                            { title: "Information Technology and Communication", issuer: "BNSP", year: "2023", type: "Competency", icon: "computer", pdf: "" },
-                            { title: "Network Security Troubleshooting (WAN)", issuer: "PT Bonet", year: "2023", type: "Technical", icon: "gpp_maybe", pdf: "" },
+                            { title: "Penerapan Jaringan Komputer", issuer: "BNSP", year: "2025", icon: "badge", pdf: "" },
+                            { title: "Network Administrator Muda", issuer: "BNSP", year: "2024", icon: "admin_panel_settings", pdf: "" },
+                            { title: "Network Administrator Muda", issuer: "Kemnaker RI", year: "2024", icon: "security", pdf: "./assets/documents/Sertifikat%20Network%20Administrator%20Muda%20Kemnaker.pdf" },
+                            { title: "Networking Basics", issuer: "Cisco", year: "2024", icon: "language", pdf: "" },
+                            { title: "Cisco Dasar", issuer: "ID-Networkers", year: "2024", icon: "router", pdf: "" },
+                            { title: "Jaringan Komputer Dasar", issuer: "ID-Networkers", year: "2024", icon: "settings_ethernet", pdf: "" },
+                            { title: "Optical Fiber Access Network", issuer: "Udemy", year: "2023", icon: "fiber_manual_record", pdf: "" },
+                            { title: "IT and Communication", issuer: "BNSP", year: "2023", icon: "computer", pdf: "" },
+                            { title: "Network Security (WAN)", issuer: "PT Bonet", year: "2023", icon: "gpp_maybe", pdf: "" },
                         ];
 
-                        document.write(certs.map(c => `
-                            <div onclick="openCert('${c.title}', '${c.issuer}', '${c.year}', '${c.pdf}')" class="cursor-pointer bg-white dark:bg-gray-900 p-6 rounded-xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm group hover:border-primary hover:shadow-lg transition-all flex items-center gap-4">
-                                <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <span class="material-symbols-outlined">${c.icon}</span>
-                                </div>
-                                <div>
-                                    <div class="text-xs font-bold text-primary mb-1 uppercase tracking-tighter">${c.issuer}</div>
-                                    <h3 class="text-base font-bold dark:text-white leading-tight">${c.title}</h3>
-                                    <p class="text-xs text-dark-navy/60 dark:text-gray-400 mt-1">${c.year}</p>
+                        // Output script directly
+                        document.write(certs.map((c, i) => `
+                            <div onclick="openCert('${c.title}', '${c.issuer}', '${c.year}', '${c.pdf}')" 
+                                 class="group cursor-pointer bg-white dark:bg-surface-dark p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg hover:border-primary transition-all"
+                                 data-aos="fade-up" data-aos-delay="${i * 50}">
+                                <div class="flex items-center gap-4">
+                                    <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                                        <span class="material-symbols-outlined">${c.icon}</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">${c.issuer}</div>
+                                        <h3 class="font-bold text-gray-900 dark:text-white leading-tight">${c.title}</h3>
+                                        <div class="mt-1 text-xs text-gray-400">${c.year}</div>
+                                    </div>
                                 </div>
                             </div>
                         `).join(''));
@@ -616,142 +692,201 @@
 
     </main>
 
-    <!-- Shared Footer -->
-    <footer class="bg-dark-navy py-12 px-6 lg:px-40 text-white pb-32 md:pb-12">
+    <!-- Blueprint Footer -->
+    <footer class="bg-blueprint text-white pt-20 pb-10 border-t border-white/10 relative overflow-hidden">
+        <!-- Decoration -->
         <div
-            class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-            <div class="flex flex-col gap-2 items-center md:items-start">
-                <h2 class="text-2xl font-black tracking-tight">Atilla Pramudya Nugroho</h2>
-                <p class="text-gray-400 text-sm">Innovating at the edge of Telecommunications technology.</p>
-                <a class="text-primary font-medium mt-2 hover:underline"
-                    href="mailto:atillapramudya2004@gmail.com">atillapramudya2004@gmail.com</a>
+            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-6">Ready to Engineer<br><span
+                            class="text-primary">The Next Big Thing?</span></h2>
+                    <p class="text-gray-400 max-w-md text-lg">I am currently available for internships and full-time
+                        positions in Network Engineering & IoT.</p>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                    <a href="mailto:atillapramudya2004@gmail.com"
+                        class="group relative px-8 py-4 bg-white text-black font-bold text-lg rounded-xl hover:scale-105 transition-transform">
+                        Say Hello 👋
+                        <div
+                            class="absolute inset-0 rounded-xl ring-2 ring-white ring-offset-2 ring-offset-transparent group-hover:ring-offset-primary transition-all">
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="flex gap-10">
-                <a class="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-bold"
-                    href="https://www.linkedin.com/in/atillaprmdya" target="_blank">
-                    <img src="./assets/images/linkedin_icon.png" class="size-5 rounded-full" alt="LinkedIn"> LinkedIn
-                </a>
-                <a class="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-bold"
-                    href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank">
-                    <img src="./assets/images/instagram_icon.png" class="size-5 rounded-full" alt="IG"> Instagram
-                </a>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 py-8 border-t border-white/10">
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-4">Socials</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.linkedin.com/in/atillaprmdya" target="_blank"
+                                class="hover:text-primary transition-colors">LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank"
+                                class="hover:text-primary transition-colors">Instagram</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-4">Contact</h4>
+                    <p class="text-gray-400">atillapramudya2004@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-4">Location</h4>
+                    <p class="text-gray-400">Jakarta, Indonesia</p>
+                </div>
             </div>
-            <div class="text-center md:text-right">
-                <p class="text-gray-500 text-[10px] uppercase tracking-widest mb-1">Status: Active Engineering Student
-                </p>
-                <p class="text-gray-500 text-xs">
-                    © 2025 Atilla Pramudya Nugroho. <br /> Telkom University Jakarta.
-                </p>
+
+            <div class="text-center pt-8 mt-8 border-t border-white/5 text-xs text-gray-600">
+                &copy; 2026 Atilla Pramudya Nugroho. Designed with Engineering Precision.
             </div>
         </div>
     </footer>
 
     <!-- Mobile Bottom Navigation -->
     <nav
-        class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[327px] bg-[#111318] dark:bg-white dark:text-[#111318] text-white h-16 rounded-2xl flex items-center justify-around px-4 shadow-2xl z-[60]">
-        <a href="#about" class="flex flex-col items-center justify-center text-primary"><span
-                class="material-symbols-outlined text-2xl">person</span></a>
-        <a href="#experience" class="flex flex-col items-center justify-center opacity-60"><span
-                class="material-symbols-outlined text-2xl">work</span></a>
-        <a href="#projects" class="flex flex-col items-center justify-center opacity-60"><span
-                class="material-symbols-outlined text-2xl">code</span></a>
-        <a href="#certifications" class="flex flex-col items-center justify-center opacity-60"><span
-                class="material-symbols-outlined text-2xl">verified</span></a>
+        class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[400px] glass dark:bg-black/80 backdrop-blur-xl h-16 rounded-2xl flex items-center justify-around px-2 shadow-2xl z-[60] border border-white/20 dark:border-white/10">
+        <a href="#about" class="p-3 text-primary"><span class="material-symbols-outlined">person</span></a>
+        <a href="#projects" class="p-3 text-gray-400 hover:text-primary"><span
+                class="material-symbols-outlined">code</span></a>
+        <a href="#certifications" class="p-3 text-gray-400 hover:text-primary"><span
+                class="material-symbols-outlined">verified</span></a>
+        <!-- Mobile Dark Mode -->
+        <button id="mobile-theme-toggle" class="p-3 text-gray-400 hover:text-accent">
+            <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+            <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+        </button>
     </nav>
 
     <!-- Certificate Modal -->
     <div id="certModal"
-        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
         <div
-            class="modal-content bg-white dark:bg-gray-900 w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl relative">
+            class="modal-content bg-white dark:bg-surface-dark w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl relative border border-white/10">
             <button onclick="closeCert()"
-                class="absolute top-4 right-4 z-10 size-10 bg-black/10 hover:bg-black/20 text-dark-navy dark:text-white rounded-full flex items-center justify-center transition-colors">
+                class="absolute top-4 right-4 z-10 size-10 bg-black/10 hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20 text-gray-800 dark:text-white rounded-full flex items-center justify-center transition-colors">
                 <span class="material-symbols-outlined">close</span>
             </button>
-            <div class="p-8 flex flex-col items-center text-center">
-                <div class="size-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                    <span class="material-symbols-outlined text-4xl">verified</span>
+            <div class="p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-3xl">verified</span>
+                    </div>
+                    <div>
+                        <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 dark:text-white">Certificate Title
+                        </h3>
+                        <p id="modalIssuer" class="text-primary font-bold uppercase text-xs tracking-widest">ISSUER •
+                            YEAR</p>
+                    </div>
                 </div>
-                <h3 id="modalTitle" class="text-2xl font-black text-dark-navy dark:text-white mb-2">Certificate Title
-                </h3>
-                <p id="modalIssuer" class="text-primary font-bold uppercase tracking-widest text-sm mb-6">ISO / BNSP</p>
 
-                <!-- Certificate Preview Container -->
+                <!-- Preview Area -->
                 <div id="certPreviewContainer"
-                    class="w-full aspect-video bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700 relative overflow-hidden group">
-                    <!-- Content will be injected by JS -->
+                    class="w-full aspect-video bg-gray-100 dark:bg-black/50 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700 relative overflow-hidden">
+                    <!-- JS Injects Iframe Here -->
                 </div>
 
-                <div class="mt-6 flex gap-4 w-full">
-                    <button onclick="closeCert()"
-                        class="flex-1 py-3 rounded-xl font-bold bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Close</button>
-                    <!-- Simulated Download/View Link -->
-                    <button
-                        class="flex-1 py-3 rounded-xl font-bold bg-primary text-white hover:opacity-90 transition-opacity">View
-                        PDF</button>
+                <div class="mt-6 flex justify-end">
+                    <button id="modalActionBtn"
+                        class="hidden px-6 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary-hover transition-colors">
+                        Open Full PDF
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Dark Mode Logic
+        const toggleBtns = [document.getElementById('theme-toggle'), document.getElementById('mobile-theme-toggle')];
+        const html = document.documentElement;
+
+        // Check LocalStorage
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        toggleBtns.forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    html.classList.toggle('dark');
+                    localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+                });
+            }
+        });
+
+        // Smart Header logic
+        let lastScroll = 0;
+        const header = document.getElementById('main-header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('header-hidden');
+                header.classList.remove('shadow-md');
+            }
+            else if (currentScroll > lastScroll && currentScroll > 100) {
+                // Scroll Down
+                header.classList.add('header-hidden');
+            }
+            else {
+                // Scroll Up
+                header.classList.remove('header-hidden');
+                header.classList.add('shadow-md');
+            }
+            lastScroll = currentScroll;
+        });
+
         // Modal Logic
         const modal = document.getElementById('certModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalIssuer = document.getElementById('modalIssuer');
-        const modalBtn = modal.querySelector('button.bg-primary');
+        const modalBtn = document.getElementById('modalActionBtn');
         const certPreviewContainer = document.getElementById('certPreviewContainer');
 
-        function openCert(title, issuer, year, pdf) {
+        window.openCert = function (title, issuer, year, pdf) {
             modalTitle.textContent = title;
             modalIssuer.textContent = `${issuer} • ${year}`;
 
-            // Handle PDF Preview
             if (pdf && pdf !== 'undefined' && pdf !== '') {
-                // Show PDF in iframe
-                certPreviewContainer.innerHTML = `<iframe src="${pdf}#toolbar=0" class="w-full h-full border-0" title="Certificate Preview"></iframe>`;
-
+                certPreviewContainer.innerHTML = `<iframe src="${pdf}#toolbar=0" class="w-full h-full border-0"></iframe>`;
                 modalBtn.style.display = 'block';
-                modalBtn.textContent = 'Open Full PDF';
-                modalBtn.onclick = function () {
-                    window.open(pdf, '_blank');
-                };
+                modalBtn.onclick = () => window.open(pdf, '_blank');
             } else {
-                // Show Placeholder if no PDF
                 certPreviewContainer.innerHTML = `
-                    <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
-                        <img src="https://via.placeholder.com/150/d1d5db/6b7280?text=No+Preview" class="w-24 opacity-50 mb-2">
-                        <p class="text-xs text-gray-500 bg-white/80 dark:bg-black/80 px-4 py-2 rounded-full">No preview available</p>
+                    <div class="flex flex-col items-center opacity-50">
+                        <span class="material-symbols-outlined text-4xl mb-2">lock</span>
+                        <p class="text-sm">Preview not available</p>
                     </div>
                 `;
                 modalBtn.style.display = 'none';
             }
 
             modal.classList.add('active');
-        }
+        };
 
-        function closeCert() {
+        window.closeCert = function () {
             modal.classList.remove('active');
-            // Clear iframe to stop media/pdf process
-            if (certPreviewContainer) certPreviewContainer.innerHTML = '';
-        }
+            setTimeout(() => {
+                certPreviewContainer.innerHTML = ''; // Cleanup iframe
+            }, 300);
+        };
 
-        // Close on click outside
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeCert();
-        });
-
-        // Bottom Nav Logic
-        const bottomLinks = document.querySelectorAll('nav.fixed a');
-        bottomLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                bottomLinks.forEach(l => {
-                    l.classList.remove('text-primary');
-                    l.classList.add('opacity-60');
-                });
-                link.classList.remove('opacity-60');
-                link.classList.add('text-primary');
-            });
         });
     </script>
 </body>
