@@ -1,0 +1,92 @@
+{
+    "categories": [
+        {
+            "name": "IoT & Embedded",
+            "icon": "microchip",
+            "skills": [
+                {
+                    "name": "ESP32",
+                    "level": 90
+                },
+                {
+                    "name": "Arduino",
+                    "level": 85
+                },
+                {
+                    "name": "Sensor Integration",
+                    "level": 85
+                },
+                {
+                    "name": "MQTT Protocol",
+                    "level": 80
+                }
+            ]
+        },
+        {
+            "name": "Network Engineering",
+            "icon": "network-wired",
+            "skills": [
+                {
+                    "name": "Fiber Optic Splicing",
+                    "level": 85
+                },
+                {
+                    "name": "Network Configuration",
+                    "level": 80
+                },
+                {
+                    "name": "FTTH Installation",
+                    "level": 75
+                },
+                {
+                    "name": "Troubleshooting",
+                    "level": 80
+                }
+            ]
+        },
+        {
+            "name": "Web Development",
+            "icon": "code",
+            "skills": [
+                {
+                    "name": "HTML/CSS/JS",
+                    "level": 80
+                },
+                {
+                    "name": "Web Dashboard",
+                    "level": 75
+                },
+                {
+                    "name": "API Integration",
+                    "level": 70
+                },
+                {
+                    "name": "Responsive Design",
+                    "level": 75
+                }
+            ]
+        },
+        {
+            "name": "Tools & Platforms",
+            "icon": "tools",
+            "skills": [
+                {
+                    "name": "Git/GitHub",
+                    "level": 75
+                },
+                {
+                    "name": "VS Code",
+                    "level": 85
+                },
+                {
+                    "name": "Postman",
+                    "level": 70
+                },
+                {
+                    "name": "Figma",
+                    "level": 60
+                }
+            ]
+        }
+    ]
+}

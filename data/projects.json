@@ -1,0 +1,91 @@
+{
+    "projects": [
+        {
+            "id": "savia",
+            "title": "SAVIA - Smart Water Monitoring",
+            "category": "IoT",
+            "thumbnail": "./assets/images/projects/savia-thumb.jpg",
+            "images": [
+                "./assets/images/projects/savia-1.jpg",
+                "./assets/images/projects/savia-2.jpg"
+            ],
+            "shortDescription": "IoT-based water quality monitoring system with real-time dashboard.",
+            "description": "SAVIA is an innovative IoT solution designed to monitor water quality in real-time. The system uses multiple sensors to track pH levels, turbidity, temperature, and other critical parameters, sending data to a web-based dashboard for analysis.",
+            "highlights": [
+                "Secured Rp 50M CSR funding",
+                "Real-time monitoring dashboard",
+                "ESP32 + multi-sensor integration",
+                "Community impact project"
+            ],
+            "techStack": [
+                "ESP32",
+                "Arduino",
+                "Web Dashboard",
+                "MQTT",
+                "Sensors"
+            ],
+            "links": {
+                "github": "",
+                "demo": "",
+                "documentation": ""
+            },
+            "featured": true,
+            "year": "2024"
+        },
+        {
+            "id": "harmony-iot",
+            "title": "Harmony-IoT",
+            "category": "IoT",
+            "thumbnail": "./assets/images/projects/harmony-thumb.jpg",
+            "images": [
+                "./assets/images/projects/harmony-1.jpg"
+            ],
+            "shortDescription": "Smart home automation system recognized in Innovillage Top 50.",
+            "description": "Harmony-IoT is a comprehensive smart home solution that integrates various IoT devices for seamless home automation. The project was recognized as one of the Top 50 innovations in the Innovillage competition.",
+            "highlights": [
+                "Innovillage Top 50 Finalist",
+                "Smart home integration",
+                "Mobile app control",
+                "Energy monitoring features"
+            ],
+            "techStack": [
+                "ESP32",
+                "Arduino",
+                "Mobile App",
+                "Cloud IoT"
+            ],
+            "links": {
+                "github": "",
+                "demo": ""
+            },
+            "featured": true,
+            "year": "2024"
+        },
+        {
+            "id": "blood-type-detector",
+            "title": "Blood Type Detector",
+            "category": "Community Service",
+            "thumbnail": "./assets/images/projects/blood-thumb.jpg",
+            "images": [
+                "./assets/images/projects/blood-1.jpg"
+            ],
+            "shortDescription": "Automated blood type detection system for community health programs.",
+            "description": "A community service project developing an automated blood type detection system to assist healthcare providers in rural areas. The device uses image processing to identify blood types quickly and accurately.",
+            "highlights": [
+                "Community service initiative",
+                "Image processing technology",
+                "Healthcare accessibility focus"
+            ],
+            "techStack": [
+                "Arduino",
+                "Image Processing",
+                "Sensors"
+            ],
+            "links": {
+                "github": ""
+            },
+            "featured": false,
+            "year": "2023"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Atilla Pramudya Nugroho",
+  "title": "IoT Developer & Network Engineer",
+  "tagline": "I Turn Ideas Into Intelligent, Connected Systems",
+  "roles": ["IoT Developer", "Network Engineer", "Problem Solver"],
+  "avatar": "./assets/images/profile.jpg",
+  "about": {
+    "summary": "I'm Atilla, a Telecommunication Engineering student who doesn't just study networks—I build systems that solve real problems.",
+    "description": "My IoT projects have secured Rp 50 million in CSR funding and reached the Top 50 of Innovillage competition. From splicing fiber optics at PLN Icon Plus to developing water monitoring systems for communities, I bridge the gap between hardware and software.",
+    "cta": "Currently seeking opportunities where I can apply my skills in IoT development, network engineering, and embedded systems to build impactful solutions."
+  },
+  "stats": [
+    { "value": "50M+", "label": "Funding Secured" },
+    { "value": "Top 50", "label": "Innovillage" },
+    { "value": "3+", "label": "Major Projects" }
+  ],
+  "social": {
+    "email": "your.email@example.com",
+    "whatsapp": "62XXXXXXXXXX",
+    "linkedin": "https://linkedin.com/in/your-profile",
+    "github": "https://github.com/your-username",
+    "instagram": ""
+  },
+  "cv": "./assets/documents/CV_Atilla.pdf"
+}

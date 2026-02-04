@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Atilla Pramudya - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#5397B9",
+                        "background-light": "#F4F2E8",
+                        "background-dark": "#15181d",
+                        "dark-navy": "#111318",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Modal Animation */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            transform: scale(0.95);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-dark-navy dark:text-gray-100 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/10 px-6 py-4 lg:px-40 transition-all duration-300">
+        <div class="flex items-center justify-between max-w-[1200px] mx-auto w-full">
+            <div class="flex items-center gap-3">
+                <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-xl">settings_input_antenna</span>
+                </div>
+                <h2 class="text-dark-navy dark:text-white text-lg lg:text-xl font-black leading-tight tracking-tight">
+                    <span class="md:hidden">APN</span>
+                    <span class="hidden md:inline">Atilla Pramudya</span>
+                </h2>
+            </div>
+            <div class="hidden md:flex flex-1 justify-end gap-10">
+                <nav class="flex items-center gap-9">
+                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
+                        href="#about">About</a>
+                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
+                        href="#experience">Experience</a>
+                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
+                        href="#projects">Projects</a>
+                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
+                        href="#community">Community</a>
+                    <a class="text-dark-navy dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
+                        href="#certifications">Certificates</a>
+                </nav>
+                <a href="assets/documents/CV%20ATS%20Atilla%20P.N.pdf" download
+                    class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
+                    <span>Download CV</span>
+                </a>
+            </div>
+            <div class="md:hidden">
+                <button
+                    class="flex size-10 items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-sm border border-black/5 dark:border-white/10 text-primary">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 pb-32 md:pb-0">
+
+        <!-- Hero Section -->
+        <section id="about" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1200px] w-full mx-auto">
+                <div class="flex flex-col items-center gap-6 md:hidden text-center">
+                    <!-- Mobile Avatar -->
+                    <div class="bg-center bg-no-repeat bg-cover rounded-full h-32 w-32 border-4 border-white dark:border-gray-800 shadow-lg"
+                        style='background-image: url("./assets/images/profile.jpg");'>
+                    </div>
+                    <div class="flex flex-col items-center text-center gap-2">
+                        <h1 class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight">
+                            Atilla Pramudya Nugroho</h1>
+                        <p class="text-primary font-semibold text-sm uppercase tracking-widest">Telecom Engineer & IoT
+                            Developer</p>
+                        <div class="flex gap-4 mt-2">
+                            <a class="text-primary flex items-center gap-1 font-medium text-sm"
+                                href="mailto:atillapramudya2004@gmail.com"><span
+                                    class="material-symbols-outlined text-lg">mail</span> Email</a>
+                            <a class="text-primary flex items-center gap-1 font-medium text-sm"
+                                href="https://www.linkedin.com/in/atillaprmdya" target="_blank"><img
+                                    src="./assets/images/linkedin_icon.png" class="size-5 rounded-full" alt="LinkedIn">
+                                LinkedIn</a>
+                            <a class="text-primary flex items-center gap-1 font-medium text-sm"
+                                href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank"><img
+                                    src="./assets/images/instagram_icon.png" class="size-5 rounded-full" alt="IG">
+                                Instagram</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex flex-col gap-10 lg:flex-row items-center">
+                    <div class="flex flex-col gap-8 flex-1 lg:justify-center">
+                        <div class="flex flex-col gap-4 text-left">
+                            <span class="text-primary font-bold tracking-wider uppercase text-sm">Telecommunication
+                                Engineering Student</span>
+                            <h1
+                                class="text-dark-navy dark:text-white text-5xl lg:text-6xl font-black leading-[1.1] tracking-[-0.033em]">
+                                Engineering the Future of <span class="text-primary">Connectivity</span>
+                            </h1>
+                            <p
+                                class="text-dark-navy/70 dark:text-gray-400 text-lg font-normal leading-relaxed max-w-[600px]">
+                                Telkom University student with a deep interest in Fiber Optic (GPON), BTS
+                                infrastructure, and IoT development. Dedicated to optimizing network reliability and
+                                performance.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex gap-4 items-center">
+                                <a class="flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-md text-primary hover:scale-110 transition-transform overflow-hidden"
+                                    href="https://www.linkedin.com/in/atillaprmdya" target="_blank">
+                                    <img src="./assets/images/linkedin_icon.png" alt="LinkedIn"
+                                        class="w-full h-full object-cover">
+                                </a>
+                                <a class="flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-md text-primary hover:scale-110 transition-transform overflow-hidden"
+                                    href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank">
+                                    <img src="./assets/images/instagram_icon.png" alt="Instagram"
+                                        class="w-full h-full object-cover">
+                                </a>
+                                <a class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-8 bg-primary text-white text-base font-bold shadow-md hover:bg-primary/90 transition-all"
+                                    href="mailto:atillapramudya2004@gmail.com">
+                                    <span>Contact Me</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Desktop Avatar -->
+                    <div class="w-full lg:w-[480px] h-[520px] bg-center bg-no-repeat bg-cover rounded-2xl shadow-xl overflow-hidden relative group"
+                        style='background-image: url("./assets/images/profile.jpg");'>
+                        <div
+                            class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1200px] mx-auto">
+                <h2
+                    class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight mb-8 md:mb-12 border-l-4 border-primary pl-6">
+                    Professional Experience</h2>
+
+                <div class="flex flex-col gap-8">
+                    <!-- PLN -->
+                    <div
+                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm relative overflow-hidden group hover:border-primary/50 transition-all">
+                        <div
+                            class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full group-hover:bg-primary/10 transition-colors">
+                        </div>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-black text-dark-navy dark:text-white">PLN Icon Plus</h3>
+                                <p class="text-primary font-bold">Engineering Activation & Maintenance</p>
+                            </div>
+                            <div class="flex flex-col md:items-end gap-1">
+                                <span
+                                    class="text-sm font-bold px-4 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">May
+                                    2023 – Sep 2024</span>
+                                <span class="text-xs text-gray-500 font-mono text-right">Internship</span>
+                            </div>
+                        </div>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-dark-navy/70 dark:text-gray-400">
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+                                <span>Activation and installation of Iconnet network from provider to customer
+                                    premises.</span>
+                            </li>
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+                                <span>Ensured execution of Occupational Health and Safety (K3) standards in every
+                                    activation process.</span>
+                            </li>
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+                                <span>Performed fiber optic cable jointing in cases of Link LOSS indications.</span>
+                            </li>
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+                                <span>Inspected FAT (Fiber Access Termination) standards (13dbm - 24dbm) prior to
+                                    installation.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Telkom Valins -->
+                    <div
+                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm relative overflow-hidden group hover:border-primary/50 transition-all">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-black text-dark-navy dark:text-white">Telkom Witel Bogor</h3>
+                                <p class="text-primary font-bold">Valins Service</p>
+                            </div>
+                            <div class="flex flex-col md:items-end gap-1">
+                                <span
+                                    class="text-sm font-bold px-4 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">Aug
+                                    2022 – Dec 2022</span>
+                                <span class="text-xs text-gray-500 font-mono text-right">Technical Assistant</span>
+                            </div>
+                        </div>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-dark-navy/70 dark:text-gray-400">
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">inventory</span>
+                                <span>Adjusted ODP data in the Oracle UIM Telkom system to match field
+                                    conditions.</span>
+                            </li>
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">verified</span>
+                                <span>Conducted field visits for Indihome FTTH network construction per Telkom
+                                    SOP.</span>
+                            </li>
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">map</span>
+                                <span>Mapped and marked ODC to ODP Indihome routes in Google Earth.</span>
+                            </li>
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">check_circle</span>
+                                <span>Validated via Valins web to ensure accurate port usage in Indihome ODPs.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Telkom Access Data -->
+                    <div
+                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm relative overflow-hidden group hover:border-primary/50 transition-all">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-black text-dark-navy dark:text-white">Telkom Witel Bogor</h3>
+                                <p class="text-primary font-bold">Access Data Management</p>
+                            </div>
+                            <div class="flex flex-col md:items-end gap-1">
+                                <span
+                                    class="text-sm font-bold px-4 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full w-fit">Jun
+                                    2022 – Aug 2022</span>
+                                <span class="text-xs text-gray-500 font-mono text-right">Internship</span>
+                            </div>
+                        </div>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-dark-navy/70 dark:text-gray-400">
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">engineering</span>
+                                <span>Monitored provisioning technicians during installation and maintenance.</span>
+                            </li>
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">visibility</span>
+                                <span>Observed FTTH operational processes via STO (Sentral Telepon Otomat)
+                                    visits.</span>
+                            </li>
+                            <li class="flex gap-3 items-start"><span
+                                    class="material-symbols-outlined text-primary text-xl shrink-0">inventory_2</span>
+                                <span>Supported FTTH network construction field visits.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1200px] mx-auto">
+                <h2
+                    class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight mb-8 md:mb-12 border-l-4 border-primary pl-6">
+                    Key Projects & Competitions</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- SAVIA -->
+                    <div
+                        class="group flex flex-col bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-[#d5d9e1] dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="h-64 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            style="background-image: url('./assets/images/projects/savia.jpg');">
+                            <div class="p-6 h-full bg-black/50 flex flex-col justify-end">
+                                <span
+                                    class="px-3 py-1 bg-green-500 text-white text-[12px] font-bold uppercase rounded w-fit mb-2">CSR
+                                    Funding Rp 50M</span>
+                                <h3 class="text-white text-2xl font-black">SAVIA Project</h3>
+                                <p class="text-white/80 text-sm">Oct 2025 - Dec 2025</p>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8 flex flex-col flex-1">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-primary font-bold text-sm">Project Leader</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold">Telkom
+                                    CSR</span>
+                            </div>
+                            <p class="text-dark-navy/60 dark:text-gray-400 text-sm mb-6 grow">
+                                Led the "SAVIA" implementation focusing on clean water sanitation. Managed a Rp 50M
+                                grant to build an IoT-based water distribution system and real-time digital dashboard.
+                                Coordinated field teams and stakeholder reporting.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span
+                                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-gray-300 text-[10px] font-bold uppercase rounded">IoT
+                                    Dashboard</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-gray-300 text-[10px] font-bold uppercase rounded">Water
+                                    Management</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Harmony-IoT -->
+                    <div
+                        class="group flex flex-col bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-[#d5d9e1] dark:border-gray-800 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="h-64 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                            style="background-image: url('./assets/images/projects/harmony.jpg');">
+                            <div class="p-6 h-full bg-black/50 flex flex-col justify-end">
+                                <span
+                                    class="px-3 py-1 bg-primary text-white text-[12px] font-bold uppercase rounded w-fit mb-2">Top
+                                    50 National (Rank 9)</span>
+                                <h3 class="text-white text-2xl font-black">Harmony-IoT</h3>
+                                <p class="text-white/80 text-sm">Dec 2024 - Feb 2025</p>
+                            </div>
+                        </div>
+                        <div class="p-6 lg:p-8 flex flex-col flex-1">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-primary font-bold text-sm">Team Leader</span>
+                                <span class="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold">Innovillage
+                                    2024</span>
+                            </div>
+                            <p class="text-dark-navy/60 dark:text-gray-400 text-sm mb-6 grow">
+                                Led team "Musketeers". Designed a renewable energy (pico hydro & solar) water storage
+                                system with automated pH monitoring. Focused on improving rural quality of life through
+                                sustainable tech.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span
+                                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-gray-300 text-[10px] font-bold uppercase rounded">Renewable
+                                    Energy</span>
+                                <span
+                                    class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-gray-300 text-[10px] font-bold uppercase rounded">Smart
+                                    System</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Service Section (NEW) -->
+        <section id="community" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1200px] mx-auto">
+                <h2
+                    class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight mb-8 md:mb-12 border-l-4 border-primary pl-6">
+                    Community Service</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Al Jambani -->
+                    <div
+                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm flex flex-col gap-4">
+                        <div
+                            class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">diversity_3</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">November 2024</span>
+                            <h3 class="text-xl font-black text-dark-navy dark:text-white mb-2">Al Jambani Islamic
+                                Boarding School</h3>
+                            <p class="text-dark-navy/70 dark:text-gray-400 text-sm">
+                                Developed an analog blood type detection tool for students. Conducted direct training
+                                for students and teachers on usage and application.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SLB Kuntum Mekar -->
+                    <div
+                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm flex flex-col gap-4">
+                        <div
+                            class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">accessibility_new</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">June 2024</span>
+                            <h3 class="text-xl font-black text-dark-navy dark:text-white mb-2">SLB Kuntum Mekar, Jakarta
+                            </h3>
+                            <p class="text-dark-navy/70 dark:text-gray-400 text-sm">
+                                Developed a blood type detection tool as a learning media for special needs students.
+                                Designed to support interactive biological education tailored to student needs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Siaga Galuga -->
+                    <div
+                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm flex flex-col gap-4 md:col-span-2 lg:col-span-1">
+                        <div
+                            class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-2">
+                            <span class="material-symbols-outlined text-2xl">security</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">December 2025</span>
+                            <h3 class="text-xl font-black text-dark-navy dark:text-white mb-2">Siaga Galuga: IoT Smart
+                                Village Security</h3>
+                            <p class="text-dark-navy/70 dark:text-gray-400 text-sm mb-2">
+                                Developed "SIAGA Galuga," an IoT-based smart alarm and security warning system to
+                                accelerate village digitalization. Solved critical issues regarding real-time
+                                environmental monitoring and security risks in the village.
+                            </p>
+                            <p class="text-primary font-bold text-sm">
+                                <span class="material-symbols-outlined text-sm align-middle">verified</span> Achieved
+                                98% satisfaction rate from village officials.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Leadership -->
+        <section id="education" class="px-6 lg:px-40 py-16 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div>
+                    <div class="border-l-4 border-primary pl-6 mb-8">
+                        <h2 class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight">
+                            Education</h2>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <!-- University -->
+                        <div
+                            class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm">
+                            <div class="flex gap-4 items-center mb-2">
+                                <span class="material-symbols-outlined text-primary text-4xl">school</span>
+                                <div>
+                                    <h3 class="text-xl font-bold dark:text-white">Telkom University Jakarta</h3>
+                                    <p class="text-dark-navy/60 dark:text-gray-400">S1 Telecommunication Engineering |
+                                        2023 - Present</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 border-t border-gray-100 dark:border-gray-800 pt-4">
+                                <p class="text-primary font-black text-2xl mb-2">GPA 3.78 <span
+                                        class="text-sm font-normal text-gray-400">(Semester 5)</span></p>
+                                <ul class="text-sm text-dark-navy/70 dark:text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Practicum Assistant for Telecommunication Traffic Network.</li>
+                                    <li>HMTT Non-academic division member.</li>
+                                    <li>Developed photodiode-based learning media for community service.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- SMK -->
+                        <div
+                            class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm opacity-80 hover:opacity-100 transition-opacity">
+                            <div class="flex gap-4 items-center mb-2">
+                                <span class="material-symbols-outlined text-primary text-4xl">engineering</span>
+                                <div>
+                                    <h3 class="text-lg font-bold dark:text-white">SMK Al Muhtadin Depok</h3>
+                                    <p class="text-dark-navy/60 dark:text-gray-400">Engineering Network & Computer |
+                                        2020 - 2023</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 border-t border-gray-100 dark:border-gray-800 pt-4">
+                                <p class="font-bold text-dark-navy dark:text-white mb-2">Final Grade: 84</p>
+                                <ul class="text-sm text-dark-navy/70 dark:text-gray-400 list-disc ml-4 space-y-1">
+                                    <li>Debian Linux Administration (Install, Config, Troubleshoot).</li>
+                                    <li>Network Basics: Protocols, Subnetting, Routing, Switching (Mikrotik/Cisco).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leadership -->
+                <div>
+                    <div class="border-l-4 border-primary pl-6 mb-8">
+                        <h2 class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight">
+                            Leadership</h2>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm">
+                        <div class="flex gap-4 items-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-4xl">diversity_2</span>
+                            <div>
+                                <h3 class="text-xl font-bold dark:text-white leading-tight">Project & Team Leadership
+                                </h3>
+                                <p class="text-dark-navy/60 dark:text-gray-400">Innovation & Community</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-dark-navy dark:text-white flex items-center gap-2">
+                                    <span class="size-2 bg-primary rounded-full"></span> Project Leader - SAVIA
+                                </h4>
+                                <p class="text-sm text-dark-navy/70 dark:text-gray-400 mt-1 pl-4">
+                                    Directed a scalable IoT sanitation project with Rp 50M funding. Coordinated
+                                    technical implementation and community stakeholders to ensure successful system
+                                    deployment.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-navy dark:text-white flex items-center gap-2">
+                                    <span class="size-2 bg-primary rounded-full"></span> Team Leader - Harmony IoT
+                                </h4>
+                                <p class="text-sm text-dark-navy/70 dark:text-gray-400 mt-1 pl-4">
+                                    Led the "Musketeers" team in national competition (Top 9). Managed cross-functional
+                                    tasks between hardware engineering and software integration for rural water
+                                    solutions.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-navy dark:text-white flex items-center gap-2">
+                                    <span class="size-2 bg-gray-400 rounded-full"></span> HMTT Department Representative
+                                </h4>
+                                <p class="text-sm text-dark-navy/70 dark:text-gray-400 mt-1 pl-4">
+                                    Active in Himpunan Mahasiswa Teknik Telekomunikasi, organizing workshops and
+                                    functioning as a liaison for departmental academic forums.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications" class="px-6 lg:px-40 py-10 lg:py-16 bg-background-light dark:bg-background-dark">
+            <div class="max-w-[1200px] mx-auto">
+                <h2
+                    class="text-dark-navy dark:text-white text-3xl font-black leading-tight tracking-tight mb-8 md:mb-12 border-l-4 border-primary pl-6">
+                    Professional Certifications</h2>
+                <p class="mb-8 text-dark-navy/60 dark:text-gray-400">Click on any certificate to view details.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Certificate Items (Populated with specific user data) -->
+                    <!-- Function to generate card -->
+                    <script>
+                        const certs = [
+                            { title: "Penerapan Jaringan Komputer", issuer: "BNSP", year: "2025", type: "National Competency", icon: "badge", pdf: "" },
+                            { title: "Network Administrator Muda", issuer: "BNSP", year: "2024", type: "National Competency", icon: "admin_panel_settings", pdf: "" },
+                            { title: "Network Administrator Muda", issuer: "Kemnaker RI", year: "2024", type: "Ministry Cert", icon: "security", pdf: "./assets/documents/Sertifikat%20Network%20Administrator%20Muda%20Kemnaker.pdf" },
+                            { title: "Networking Basics", issuer: "Cisco", year: "2024", type: "Global Standard", icon: "language", pdf: "" },
+                            { title: "Cisco Dasar", issuer: "ID-Networkers", year: "2024", type: "Technical Skill", icon: "router", pdf: "" },
+                            { title: "Jaringan Komputer Dasar", issuer: "ID-Networkers", year: "2024", type: "Foundation", icon: "settings_ethernet", pdf: "" },
+                            { title: "Optical Fiber Access Network (PON/FTTH)", issuer: "Udemy", year: "2023", type: "Specialization", icon: "fiber_manual_record", pdf: "" },
+                            { title: "Information Technology and Communication", issuer: "BNSP", year: "2023", type: "Competency", icon: "computer", pdf: "" },
+                            { title: "Network Security Troubleshooting (WAN)", issuer: "PT Bonet", year: "2023", type: "Technical", icon: "gpp_maybe", pdf: "" },
+                        ];
+
+                        document.write(certs.map(c => `
+                            <div onclick="openCert('${c.title}', '${c.issuer}', '${c.year}', '${c.pdf}')" class="cursor-pointer bg-white dark:bg-gray-900 p-6 rounded-xl border border-[#d5d9e1] dark:border-gray-800 shadow-sm group hover:border-primary hover:shadow-lg transition-all flex items-center gap-4">
+                                <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span class="material-symbols-outlined">${c.icon}</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-primary mb-1 uppercase tracking-tighter">${c.issuer}</div>
+                                    <h3 class="text-base font-bold dark:text-white leading-tight">${c.title}</h3>
+                                    <p class="text-xs text-dark-navy/60 dark:text-gray-400 mt-1">${c.year}</p>
+                                </div>
+                            </div>
+                        `).join(''));
+                    </script>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="bg-dark-navy py-12 px-6 lg:px-40 text-white pb-32 md:pb-12">
+        <div
+            class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+            <div class="flex flex-col gap-2 items-center md:items-start">
+                <h2 class="text-2xl font-black tracking-tight">Atilla Pramudya Nugroho</h2>
+                <p class="text-gray-400 text-sm">Innovating at the edge of Telecommunications technology.</p>
+                <a class="text-primary font-medium mt-2 hover:underline"
+                    href="mailto:atillapramudya2004@gmail.com">atillapramudya2004@gmail.com</a>
+            </div>
+            <div class="flex gap-10">
+                <a class="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-bold"
+                    href="https://www.linkedin.com/in/atillaprmdya" target="_blank">
+                    <img src="./assets/images/linkedin_icon.png" class="size-5 rounded-full" alt="LinkedIn"> LinkedIn
+                </a>
+                <a class="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-bold"
+                    href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank">
+                    <img src="./assets/images/instagram_icon.png" class="size-5 rounded-full" alt="IG"> Instagram
+                </a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest mb-1">Status: Active Engineering Student
+                </p>
+                <p class="text-gray-500 text-xs">
+                    © 2025 Atilla Pramudya Nugroho. <br /> Telkom University Jakarta.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav
+        class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[327px] bg-[#111318] dark:bg-white dark:text-[#111318] text-white h-16 rounded-2xl flex items-center justify-around px-4 shadow-2xl z-[60]">
+        <a href="#about" class="flex flex-col items-center justify-center text-primary"><span
+                class="material-symbols-outlined text-2xl">person</span></a>
+        <a href="#experience" class="flex flex-col items-center justify-center opacity-60"><span
+                class="material-symbols-outlined text-2xl">work</span></a>
+        <a href="#projects" class="flex flex-col items-center justify-center opacity-60"><span
+                class="material-symbols-outlined text-2xl">code</span></a>
+        <a href="#certifications" class="flex flex-col items-center justify-center opacity-60"><span
+                class="material-symbols-outlined text-2xl">verified</span></a>
+    </nav>
+
+    <!-- Certificate Modal -->
+    <div id="certModal"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div
+            class="modal-content bg-white dark:bg-gray-900 w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl relative">
+            <button onclick="closeCert()"
+                class="absolute top-4 right-4 z-10 size-10 bg-black/10 hover:bg-black/20 text-dark-navy dark:text-white rounded-full flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="p-8 flex flex-col items-center text-center">
+                <div class="size-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
+                    <span class="material-symbols-outlined text-4xl">verified</span>
+                </div>
+                <h3 id="modalTitle" class="text-2xl font-black text-dark-navy dark:text-white mb-2">Certificate Title
+                </h3>
+                <p id="modalIssuer" class="text-primary font-bold uppercase tracking-widest text-sm mb-6">ISO / BNSP</p>
+
+                <!-- Certificate Preview Container -->
+                <div id="certPreviewContainer"
+                    class="w-full aspect-video bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700 relative overflow-hidden group">
+                    <!-- Content will be injected by JS -->
+                </div>
+
+                <div class="mt-6 flex gap-4 w-full">
+                    <button onclick="closeCert()"
+                        class="flex-1 py-3 rounded-xl font-bold bg-gray-100 dark:bg-gray-800 text-dark-navy dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Close</button>
+                    <!-- Simulated Download/View Link -->
+                    <button
+                        class="flex-1 py-3 rounded-xl font-bold bg-primary text-white hover:opacity-90 transition-opacity">View
+                        PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('certModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIssuer = document.getElementById('modalIssuer');
+        const modalBtn = modal.querySelector('button.bg-primary');
+        const certPreviewContainer = document.getElementById('certPreviewContainer');
+
+        function openCert(title, issuer, year, pdf) {
+            modalTitle.textContent = title;
+            modalIssuer.textContent = `${issuer} • ${year}`;
+
+            // Handle PDF Preview
+            if (pdf && pdf !== 'undefined' && pdf !== '') {
+                // Show PDF in iframe
+                certPreviewContainer.innerHTML = `<iframe src="${pdf}#toolbar=0" class="w-full h-full border-0" title="Certificate Preview"></iframe>`;
+
+                modalBtn.style.display = 'block';
+                modalBtn.textContent = 'Open Full PDF';
+                modalBtn.onclick = function () {
+                    window.open(pdf, '_blank');
+                };
+            } else {
+                // Show Placeholder if no PDF
+                certPreviewContainer.innerHTML = `
+                    <div class="absolute inset-0 flex flex-col items-center justify-center p-4">
+                        <img src="https://via.placeholder.com/150/d1d5db/6b7280?text=No+Preview" class="w-24 opacity-50 mb-2">
+                        <p class="text-xs text-gray-500 bg-white/80 dark:bg-black/80 px-4 py-2 rounded-full">No preview available</p>
+                    </div>
+                `;
+                modalBtn.style.display = 'none';
+            }
+
+            modal.classList.add('active');
+        }
+
+        function closeCert() {
+            modal.classList.remove('active');
+            // Clear iframe to stop media/pdf process
+            if (certPreviewContainer) certPreviewContainer.innerHTML = '';
+        }
+
+        // Close on click outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeCert();
+        });
+
+        // Bottom Nav Logic
+        const bottomLinks = document.querySelectorAll('nav.fixed a');
+        bottomLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                bottomLinks.forEach(l => {
+                    l.classList.remove('text-primary');
+                    l.classList.add('opacity-60');
+                });
+                link.classList.remove('opacity-60');
+                link.classList.add('text-primary');
+            });
+        });
+    </script>
+</body>
+
+</html>

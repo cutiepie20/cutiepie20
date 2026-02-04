@@ -1,0 +1,23 @@
+{
+    "achievements": [
+        {
+            "id": "innovillage-top50",
+            "title": "Innovillage Top 50 Finalist",
+            "organization": "Innovillage Competition",
+            "year": "2024",
+            "description": "Harmony-IoT project recognized among Top 50 innovations nationwide.",
+            "icon": "trophy",
+            "type": "award"
+        },
+        {
+            "id": "csr-funding",
+            "title": "Rp 50M CSR Funding",
+            "organization": "Corporate Social Responsibility Program",
+            "year": "2024",
+            "description": "Secured funding for SAVIA water monitoring project implementation.",
+            "icon": "hand-holding-dollar",
+            "type": "funding"
+        }
+    ],
+    "certifications": []
+}

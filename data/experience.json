@@ -1,0 +1,32 @@
+{
+    "experiences": [
+        {
+            "id": "pln-iconplus",
+            "company": "PLN Icon Plus",
+            "role": "Fiber Optic Technician Intern",
+            "period": "2024",
+            "location": "Indonesia",
+            "description": "Hands-on experience in fiber optic network infrastructure and maintenance.",
+            "highlights": [
+                "Performed fiber optic splicing and termination",
+                "Assisted in FTTH installation and troubleshooting",
+                "Learned network topology and documentation"
+            ],
+            "logo": "./assets/images/companies/pln-iconplus.png"
+        },
+        {
+            "id": "telkom-witel",
+            "company": "Telkom Witel Bogor",
+            "role": "Network Engineering Intern",
+            "period": "2024",
+            "location": "Bogor, Indonesia",
+            "description": "Gained practical experience in telecommunications network operations.",
+            "highlights": [
+                "Monitored network performance and uptime",
+                "Assisted in customer network troubleshooting",
+                "Documented network configurations"
+            ],
+            "logo": "./assets/images/companies/telkom.png"
+        }
+    ]
+}
