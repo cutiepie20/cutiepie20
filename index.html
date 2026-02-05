@@ -1237,7 +1237,7 @@
         }
         document.addEventListener('DOMContentLoaded', type);
 
-        // Preloader
+        // Preloader Logic with Safety Fail-safe
         const preloader = document.getElementById('preloader');
         const terminalContent = document.getElementById('terminal-content');
         const bootLines = [
@@ -1248,23 +1248,57 @@
             "> Access GRANTED."
         ];
 
-        async function runBootSequence() {
-            if (sessionStorage.getItem('bootSequenceRun')) {
+        function hidePreloader() {
+            preloader.classList.add('loaded');
+            // Ensure it doesn't block clicks even if visibility fails
+            setTimeout(() => {
                 preloader.style.display = 'none';
+                preloader.style.pointerEvents = 'none';
+            }, 800);
+            sessionStorage.setItem('booted', 'true');
+        }
+
+        async function runBootSequence() {
+            // 1. Immediate Check: If already booted, hide instantly
+            if (sessionStorage.getItem('booted')) {
+                preloader.style.display = 'none';
+                preloader.style.pointerEvents = 'none';
                 return;
             }
-            for (const line of bootLines) {
-                const p = document.createElement('div');
-                p.textContent = line;
-                terminalContent.appendChild(p);
-                await new Promise(r => setTimeout(r, Math.random() * 300 + 200));
+
+            // 2. Safety Timeout: Force hide after 3.5s no matter what
+            const safetyTimer = setTimeout(() => {
+                console.warn('Boot sequence timed out, forcing hide.');
+                hidePreloader();
+            }, 3500);
+
+            // 3. Run Animation
+            try {
+                for (const line of bootLines) {
+                    const p = document.createElement('div');
+                    p.textContent = line;
+                    terminalContent.appendChild(p);
+                    // Random typing delay
+                    await new Promise(r => setTimeout(r, Math.random() * 300 + 100));
+                }
+                // Short pause at end
+                await new Promise(r => setTimeout(r, 500));
+
+                // Clear timer since we finished normally
+                clearTimeout(safetyTimer);
+                hidePreloader();
+            } catch (e) {
+                console.error("Boot animation error:", e);
+                hidePreloader(); // Hide on error
             }
-            await new Promise(r => setTimeout(r, 800));
-            preloader.classList.add('loaded');
-            sessionStorage.setItem('bootSequenceRun', 'true');
-            setTimeout(() => { preloader.style.display = 'none'; }, 1000);
         }
-        runBootSequence();
+
+        // Initialize
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runBootSequence);
+        } else {
+            runBootSequence();
+        }
 
         // Copy Email
         function copyEmail() {
