@@ -4,30 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Canonical Tag -->
+    <link rel="canonical" href="https://cutiepie20.github.io">
     <title>Atilla Pramudya | Network Engineer</title>
     <meta name="description" content="Portfolio of Atilla Pramudya - Network Engineer & IoT Developer">
 
-    <!-- Favicon: Satellite Dish Emoji -->
+    <meta property="og:title" content="Atilla Pramudya | Network Engineer">
+    <meta property="og:description"
+        content="Portfolio of Atilla Pramudya - IoT Developer & Network Engineer with 71M+ Project Funding.">
+    <meta property="og:image" content="https://cutiepie20.github.io/assets/images/profile.jpg">
+    <meta property="og:url" content="https://cutiepie20.github.io">
+
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
 
-    <!-- Fonts: Inter & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
-    <!-- JetBrains Mono for Terminal -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Icons: Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
 
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -39,34 +40,31 @@
                         display: ['Poppins', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
+                    letterSpacing: {
+                        tight: '-0.02em',
+                        wide: '0.05em',
+                    },
                     colors: {
-                        primary: {
-                            DEFAULT: 'var(--color-primary)',
-                            hover: 'var(--color-primary-hover)',
-                        },
-                        accent: 'var(--color-accent)',
-                        background: {
-                            light: 'var(--color-bg-light)',
-                            dark: 'var(--color-bg-dark)',
-                        },
-                        surface: {
-                            light: 'var(--color-surface-light)',
-                            dark: 'var(--color-surface-dark)',
-                        }
+                        primary: { DEFAULT: '#5397B9', hover: '#427A96' },
+                        accent: '#F5D991',
+                        surface: { light: '#FFFFFF', dark: '#1A1D24' },
+                        background: { light: '#F4F2E8', dark: '#0F1115' }
                     },
                     animation: {
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'blink': 'blink 1s step-end infinite',
                         'float': 'float 6s ease-in-out infinite',
+                        'blob': 'blob 10s infinite',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
                         },
-                        blink: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0' },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         }
                     }
                 }
@@ -75,85 +73,124 @@
     </script>
 
     <style>
+        /* Core Styling */
         :root {
-            /* 1. Visual & Design System vars */
             --color-bg-light: #F4F2E8;
             --color-bg-dark: #0F1115;
             --color-primary: #5397B9;
-            --color-primary-hover: #427A96;
             --color-accent: #F5D991;
-            --color-surface-light: #FFFFFF;
-            --color-surface-dark: #1A1D24;
+            --cursor-size: 20px;
         }
 
-        /* Font Rendering */
+        body {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            cursor: none;
+            /* Hide default cursor for custom one */
+        }
+
+        /* Restore default cursor on mobile/touch */
+        @media (pointer: coarse) {
+            body {
+                cursor: auto;
+            }
+        }
+
         html {
             scrollbar-gutter: stable;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Premium Selection Detail */
         ::selection {
             background: var(--color-accent);
-            color: #000000;
+            color: #000;
         }
 
-        /* Fluid Typography */
+        /* Deluxe Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--color-primary);
+            border-radius: 20px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--color-accent);
+        }
+
+        /* Typography Polish */
         .text-fluid-h1 {
             font-size: clamp(2.5rem, 5vw, 4.5rem);
+            letter-spacing: -0.03em;
         }
 
         .text-fluid-h2 {
             font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.02em;
         }
 
-        /* Blueprint Footer */
+        /* Blueprint Pattern */
         .bg-blueprint {
-            background-color: var(--color-bg-dark);
-            background-image:
-                linear-gradient(rgba(83, 151, 185, 0.1) 1px, transparent 1px),
+            background-color: #0F1115;
+            background-image: linear-gradient(rgba(83, 151, 185, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(83, 151, 185, 0.1) 1px, transparent 1px);
             background-size: 30px 30px;
         }
 
-        /* Glassmorphism */
+        /* Noise Texture */
+        .bg-noise {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        /* Refined Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
         .dark .glass {
             background: rgba(15, 17, 21, 0.7);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
 
-        /* Header Transition */
-        #main-header {
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        /* iOS Glass Bubble */
+        .glass-bubble {
+            @apply flex items-center justify-center px-6 py-4 bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-2xl text-sm font-bold text-gray-800 dark:text-gray-100 shadow-lg cursor-default select-none relative overflow-hidden transition-all duration-500 ease-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
-        .header-hidden {
-            transform: translateY(-100%);
+        .glass-bubble:hover {
+            transform: translateY(-5px) scale(1.05);
+            background-color: rgba(255, 255, 255, 0.85);
+            border-color: #5397B9;
+            color: #5397B9;
+            box-shadow: 0 10px 30px -10px rgba(83, 151, 185, 0.4);
         }
 
-        /* Animated Dark Mode Toggle */
+        .dark .glass-bubble:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #F5D991;
+            border-color: #F5D991;
+        }
+
+        /* Toggle Switch */
         .toggle-checkbox {
             display: none;
         }
@@ -165,7 +202,7 @@
             border-radius: 9999px;
             position: relative;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: 0.3s;
         }
 
         .dark .toggle-label {
@@ -180,7 +217,7 @@
             position: absolute;
             top: 3px;
             left: 3px;
-            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -188,94 +225,7 @@
 
         .toggle-checkbox:checked+.toggle-label .toggle-ball {
             transform: translateX(24px);
-            background-color: var(--color-bg-dark);
-        }
-
-        .toggle-icon {
-            font-size: 14px;
-        }
-
-        /* iOS Glass Bubble (ULTRA SMOOTH PHYSICS) */
-        .glass-bubble {
-            @apply flex items-center justify-center px-6 py-4 bg-white/40 dark:bg-white/5 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-2xl text-sm font-bold text-gray-800 dark:text-gray-100 shadow-lg cursor-default select-none relative overflow-hidden;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            /* Custom Spring Physics */
-            transform-style: preserve-3d;
-            will-change: transform, box-shadow;
-        }
-
-        /* Gloss Sheen Effect */
-        .glass-bubble::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transform: skewX(-25deg);
-            transition: 0.5s;
-        }
-
-        .glass-bubble:hover {
-            transform: translateY(-8px) scale(1.1) perspective(500px) rotateX(2deg);
-            /* 3D Lift */
-            background-color: rgba(255, 255, 255, 0.85);
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-            box-shadow:
-                0 20px 40px -10px rgba(83, 151, 185, 0.5),
-                /* Colored Glow */
-                0 10px 10px -5px rgba(0, 0, 0, 0.1);
-            /* Soft Depth */
-            z-index: 10;
-        }
-
-        .glass-bubble:hover::after {
-            left: 150%;
-            /* Sheen Swipe */
-            transition: 0.7s ease-in-out;
-        }
-
-        .dark .glass-bubble:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            box-shadow:
-                0 20px 40px -10px rgba(83, 151, 185, 0.3),
-                0 10px 10px -5px rgba(0, 0, 0, 0.5);
-            color: var(--color-accent);
-            border-color: var(--color-accent);
-        }
-
-        /* Modal Transitions */
-        .modal {
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            transform: scale(0.95) translateY(10px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .modal.active .modal-content {
-            transform: scale(1) translateY(0);
-        }
-
-        /* Scroll Progress Bar */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-            z-index: 100;
-            width: 0%;
+            background-color: #0F1115;
         }
 
         /* Preloader */
@@ -288,7 +238,6 @@
             align-items: center;
             justify-content: flex-start;
             padding: 2rem;
-            transform: translateY(0);
             transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
@@ -312,666 +261,62 @@
             vertical-align: middle;
         }
 
-        /* Toast Notification */
-        #toast {
-            visibility: hidden;
-            min-width: 250px;
-            margin-left: -125px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 8px;
-            padding: 16px;
-            position: fixed;
-            z-index: 1000;
-            left: 50%;
-            bottom: 30px;
-            font-size: 14px;
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
             opacity: 0;
-            transition: opacity 0.3s;
+            visibility: hidden;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        #toast.show {
-            visibility: visible;
+        .modal.active {
             opacity: 1;
+            visibility: visible;
         }
 
-        /* Hide Scrollbar */
+        .modal-content {
+            transform: scale(0.95);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
 
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        /* Scroll Progress */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #5397B9, #F5D991);
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s ease-out;
         }
-    </style>
-</head>
 
-<body
-    class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        /* Laser Beam Section Divider */
+        .section-divider {
+            height: 1px;
+            width: 100%;
+            background: radial-gradient(circle, rgba(83, 151, 185, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+            margin: 0 auto;
+            border: none;
+            opacity: 0.8;
+            position: relative;
+            z-index: 10;
+        }
 
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-progress"></div>
-
-    <!-- Copy Email Toast -->
-    <div id="toast">✅ Email Copied to Clipboard!</div>
-
-    <!-- System Boot Preloader -->
-    <div id="preloader">
-        <div class="max-w-3xl w-full">
-            <div id="terminal-content" class="terminal-text"></div>
-            <div class="terminal-text mt-2">> <span class="cursor-block"></span></div>
-        </div>
-    </div>
-
-    <!-- Smart Header -->
-    <header id="main-header" class="fixed w-full top-0 z-50 glass">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-2 group">
-                <div
-                    class="size-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform duration-300">
-                    <span class="material-symbols-outlined text-2xl animate-pulse-slow">settings_input_antenna</span>
-                </div>
-                <div class="flex flex-col leading-none">
-                    <span class="font-display font-bold text-lg tracking-tight">Atilla Pramudya Nugroho</span>
-                    <span
-                        class="text-[10px] text-gray-500 dark:text-gray-400 font-mono tracking-widest uppercase">Network
-                        Engineer</span>
-                </div>
-            </a>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8">
-                <ul class="flex gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
-                    <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
-                    <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
-                    <li><a href="#education" class="hover:text-primary transition-colors">Education</a></li>
-                    <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
-                </ul>
-
-                <div class="h-6 w-px bg-gray-300 dark:bg-gray-700"></div>
-
-                <!-- Animated Dark Mode Toggle -->
-                <div class="relative">
-                    <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
-                    <label for="theme-toggle" class="toggle-label shadow-inner block overflow-hidden">
-                        <div class="toggle-ball shadow-sm border border-gray-100 dark:border-gray-600">
-                            <span
-                                class="material-symbols-outlined toggle-icon text-orange-400 block dark:hidden">wb_sunny</span>
-                            <span
-                                class="material-symbols-outlined toggle-icon text-accent hidden dark:block">dark_mode</span>
-                        </div>
-                    </label>
-                </div>
-
-                <!-- CV Button -->
-                <a href="assets/documents/CV%20ATS%20Atilla%20P.N.pdf" download rel="noopener noreferrer"
-                    class="px-5 py-2.5 bg-primary hover:bg-primary-hover text-white text-sm font-bold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 group">
-                    <span>Download CV</span>
-                    <span
-                        class="material-symbols-outlined text-sm group-hover:translate-y-0.5 transition-transform">download</span>
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="pt-24 pb-24 md:pb-0">
-
-        <!-- Hero Section -->
-        <section id="about" class="min-h-[90vh] flex items-center px-6 py-10 relative overflow-hidden">
-            <!-- Background Decoration -->
-            <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-accent/5 rounded-full blur-3xl -z-10"></div>
-
-            <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-
-                <!-- Hero Content -->
-                <div class="order-2 md:order-1 flex flex-col gap-6" data-aos="fade-right">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary w-fit border border-primary/20 backdrop-blur-sm">
-                        <span class="relative flex h-2 w-2">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        <span class="text-xs font-bold tracking-wider uppercase">Open to Work</span>
-                    </div>
-
-                    <h1 class="text-fluid-h1 font-extrabold leading-tight text-gray-900 dark:text-white">
-                        Engineering the Future of <span
-                            class="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">Connectivity</span>
-                    </h1>
-
-                    <!-- Typewriter Effect -->
-                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-lg leading-relaxed font-mono">
-                        I am a <span id="typewriter" class="font-bold text-gray-900 dark:text-white"></span><span
-                            class="animate-blink font-bold text-primary">|</span>
-                    </p>
-
-                    <p class="text-gray-600 dark:text-gray-400 max-w-lg">
-                        Specialized in <b>IoT Development</b>, <b>Fiber Optic Infrastructure</b>, and <b>Network
-                            Engineering</b>.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4 mt-2">
-                        <a href="#projects"
-                            class="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
-                            View Work
-                        </a>
-                        <div class="flex gap-2">
-                            <a href="https://www.linkedin.com/in/atillaprmdya" target="_blank" rel="noopener noreferrer"
-                                class="size-12 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:scale-110 transition-transform shadow-sm overflow-hidden p-0.5">
-                                <img src="./assets/images/linkedin_icon.png" loading="lazy"
-                                    class="w-full h-full object-cover rounded-full" alt="LinkedIn">
-                            </a>
-                            <a href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank"
-                                rel="noopener noreferrer"
-                                class="size-12 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:scale-110 transition-transform shadow-sm overflow-hidden p-0.5">
-                                <img src="./assets/images/instagram_icon.png" loading="lazy"
-                                    class="w-full h-full object-cover rounded-full" alt="Instagram">
-                            </a>
-                            <a href="mailto:atillapramudya2004@gmail.com"
-                                class="size-12 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:scale-110 transition-transform shadow-sm group">
-                                <span
-                                    class="material-symbols-outlined text-gray-900 dark:text-white group-hover:text-primary transition-colors">mail</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Stats -->
-                    <div
-                        class="grid grid-cols-3 gap-6 mt-8 p-6 bg-white/50 dark:bg-surface-dark/50 backdrop-blur-sm rounded-2xl shadow-sm border border-white/20 dark:border-gray-800">
-                        <div>
-                            <span class="block text-2xl font-bold text-gray-900 dark:text-white">3+</span>
-                            <span class="text-xs text-gray-500 uppercase font-semibold">Years Exp</span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold text-primary">Top 50</span>
-                            <span class="text-xs text-gray-500 uppercase font-semibold">Innovillage</span>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold text-accent">Rp 71M+</span>
-                            <span class="text-xs text-gray-500 uppercase font-semibold">CSR & Grants</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hero Image -->
-                <div class="order-1 md:order-2 relative" data-aos="fade-left">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3 scale-105 -z-10">
-                    </div>
-                    <div
-                        class="aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 relative bg-gray-200 group">
-                        <!-- Profile Image (Lazy Loaded) -->
-                        <img src="./assets/images/profile.jpg" loading="lazy" alt="Atilla Pramudya"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                        <!-- Floating Badge -->
-                        <div
-                            class="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-black/80 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20">
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="size-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                                    <span class="material-symbols-outlined">bolt</span>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase">Current
-                                        Focus</p>
-                                    <p class="text-sm font-bold text-gray-900 dark:text-white">IoT Smart Village
-                                        Solutions</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technologies & Tools (Refactored to iOS Glass Bubbles) -->
-        <div class="w-full py-20 border-y border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-black/40 backdrop-blur-lg relative overflow-hidden"
-            data-aos="fade-in">
-            <!-- Decorative blur blobs -->
-            <div class="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 pointer-events-none">
-            </div>
-            <div
-                class="absolute bottom-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10 pointer-events-none">
-            </div>
-
-            <div class="max-w-7xl mx-auto px-6 text-center">
-                <p class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-10">Powering My Workflow</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <span class="glass-bubble" data-aos="zoom-in" data-aos-delay="0">Fiber Optic Splicing</span>
-                    <span class="glass-bubble" data-aos="zoom-in" data-aos-delay="50">GPON Infrastructure</span>
-                    <span class="glass-bubble" data-aos="zoom-in" data-aos-delay="100">IoT (ESP32)</span>
-                    <span class="glass-bubble" data-aos="zoom-in" data-aos-delay="150">Network Administration</span>
-                    <span class="glass-bubble" data-aos="zoom-in" data-aos-delay="200">Cisco Packet Tracer</span>
-                    <span class="glass-bubble" data-aos="zoom-in" data-aos-delay="250">Linux / Debian</span>
-                    <span class="glass-bubble" data-aos="zoom-in" data-aos-delay="300">Python</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-24 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex items-center gap-4 mb-12" data-aos="fade-up">
-                    <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white">Experience</h2>
-                    <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
-                </div>
-
-                <div class="space-y-8">
-                    <!-- Job 1 -->
-                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
-                        data-aos="fade-up">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">PLN Icon Plus</h3>
-                                <p class="text-primary font-semibold">Engineering Activation & Maintenance</p>
-                            </div>
-                            <div class="text-right">
-                                <span
-                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">May
-                                    2023 – Sep 2024</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                                Activation and installation of Iconnet network from provider to customer premises.
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                                Ensured execution of K3 (Occupational Health and Safety) standards.
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                                Performed fiber optic cable jointing for Link LOSS recovery.
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Job 2 -->
-                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Telkom Witel Bogor</h3>
-                                <p class="text-primary font-semibold">Valins Service - Technical Assistant</p>
-                            </div>
-                            <div class="text-right">
-                                <span
-                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Aug
-                                    2022 – Dec 2022</span>
-                            </div>
-                        </div>
-                        <ul class="grid md:grid-cols-2 gap-4 text-gray-600 dark:text-gray-400">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">inventory</span>
-                                Adjusted ODP data in Oracle UIM Telkom system.
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">verified</span>
-                                Conducted field visits for Indihome FTTH network construction.
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">map</span>
-                                Mapped ODC to ODP routes in Google Earth.
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Job 3 -->
-                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Telkom Witel Bogor</h3>
-                                <p class="text-primary font-semibold">Access Data Management - Internship</p>
-                            </div>
-                            <div class="text-right">
-                                <span
-                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Jun
-                                    2022 – Aug 2022</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">visibility</span>
-                                Monitored provisioning technicians and observed FTTH operational processes via STO
-                                visits.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section id="education" class="py-24 px-6 bg-gray-50 dark:bg-[#12141a]">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex items-center gap-4 mb-12" data-aos="fade-up">
-                    <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white">Education</h2>
-                    <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
-                </div>
-
-                <div class="space-y-8">
-                    <!-- University -->
-                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
-                        data-aos="fade-up">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Telkom University Jakarta
-                                </h3>
-                                <p class="text-primary font-semibold">S1 Telecommunication Engineering (GPA 3.78)</p>
-                            </div>
-                            <div class="text-right">
-                                <span
-                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Current</span>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400">
-                            Focused on Project Management, Network Infrastructure, and Community Service initiatives.
-                        </p>
-                    </div>
-
-                    <!-- High School / SMK -->
-                    <div class="group relative bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">SMK Al Muhtadin Depok</h3>
-                                <p class="text-primary font-semibold">Engineering Network & Computer</p>
-                            </div>
-                            <div class="text-right">
-                                <span
-                                    class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">2020
-                                    - 2023</span>
-                            </div>
-                        </div>
-                        <ul class="space-y-3 text-gray-600 dark:text-gray-400">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">school</span>
-                                Lulusan dengan nilai: 84.
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-                                Siswa aktif dalam kegiatan akademik vokasi.
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">terminal</span>
-                                Mempelajari sistem operasi Debian Linux (Instalasi, Konfigurasi, Troubleshooting).
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">router</span>
-                                Network Basics: Protocols, Subnetting, Routing, Switching (Mikrotik & Cisco Packet
-                                Tracer).
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section (SAVIA & Harmony Only) -->
-        <section id="projects" class="py-24 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16" data-aos="zoom-in">
-                    <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">High-impact engineering initiatives.
-                    </p>
-                </div>
-
-                <div id="projects-grid" class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <!-- Projects will be injected here by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Community Service (Visual Grid - Static) -->
-        <section id="community" class="py-24 px-6 bg-gray-50 dark:bg-[#12141a]">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex items-center gap-4 mb-12" data-aos="fade-right">
-                    <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white">Community Service</h2>
-                    <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-
-                    <!-- 1. Siaga Galuga (Moved Here) -->
-                    <div class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm transition-all hover:translate-y-[-5px] hover:shadow-lg"
-                        data-aos="fade-up">
-                        <div class="h-48 bg-cover bg-center"
-                            style="background-image: url('./assets/images/projects/galuga.png');">
-                            <div class="w-full h-full bg-black/30 flex items-start justify-end p-3">
-                                <span class="bg-accent text-black text-[10px] font-bold px-2 py-1 rounded">Dec
-                                    2025</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Siaga Galuga</h3>
-                            <p class="text-primary text-xs font-bold uppercase mb-3">IoT Smart Village Security</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Implemented an IoT-based smart security
-                                system to protect Desa Galuga. Features real-time environmental monitoring.</p>
-                        </div>
-                    </div>
-
-                    <!-- 2. Al Jambani -->
-                    <div class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm transition-all hover:translate-y-[-5px] hover:shadow-lg"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div class="h-48 bg-cover bg-center"
-                            style="background-image: url('./assets/images/projects/Al%20Jambani.JPG');">
-                            <div class="w-full h-full bg-black/30 flex items-start justify-end p-3">
-                                <span class="bg-accent text-black text-[10px] font-bold px-2 py-1 rounded">Nov
-                                    2024</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Al Jambani Boarding</h3>
-                            <p class="text-primary text-xs font-bold uppercase mb-3">Health Tech Training</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Developed an analog blood type detection
-                                tool for students. Conducted direct training for students and teachers.</p>
-                        </div>
-                    </div>
-
-                    <!-- 3. SLB Kuntum Mekar -->
-                    <div class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm transition-all hover:translate-y-[-5px] hover:shadow-lg"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div class="h-48 bg-cover bg-center"
-                            style="background-image: url('./assets/images/projects/SLB%20Kuntum%20Mekar.jpeg');">
-                            <div class="w-full h-full bg-black/30 flex items-start justify-end p-3">
-                                <span class="bg-accent text-black text-[10px] font-bold px-2 py-1 rounded">June
-                                    2024</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">SLB Kuntum Mekar</h3>
-                            <p class="text-primary text-xs font-bold uppercase mb-3">Assistive EdTech</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Developed blood type detection kits as
-                                interactive learning media tailored for special needs students.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Academic Key Projects (New) -->
-        <section id="academic" class="py-24 px-6 bg-white dark:bg-black relative overflow-hidden">
-            <!-- Background Grid Decoration -->
-            <div class="absolute inset-0 bg-blueprint opacity-30 pointer-events-none"></div>
-
-            <div class="max-w-7xl mx-auto relative z-10">
-                <div class="flex items-center gap-4 mb-12" data-aos="fade-left">
-                    <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white">Academic Key Projects</h2>
-                    <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
-                </div>
-
-                <div id="academic-grid" class="grid md:grid-cols-2 gap-8">
-                    <!-- JS Injected -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications -->
-        <section id="certifications" class="py-24 px-6">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white mb-12 text-center">Professional
-                    Certifications</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- JS will fill this -->
-                    <script>
-                        const certs = [
-                            { title: "Penerapan Jaringan Komputer", issuer: "BNSP", year: "2025", icon: "badge", pdf: "" },
-                            { title: "Network Administrator Muda", issuer: "BNSP", year: "2024", icon: "admin_panel_settings", pdf: "" },
-                            { title: "Network Administrator Muda", issuer: "Kemnaker RI", year: "2024", icon: "security", pdf: "./assets/documents/Sertifikat%20Network%20Administrator%20Muda%20Kemnaker.pdf" },
-                            { title: "Networking Basics", issuer: "Cisco", year: "2024", icon: "language", pdf: "" },
-                            { title: "Cisco Dasar", issuer: "ID-Networkers", year: "2024", icon: "router", pdf: "" },
-                            { title: "Jaringan Komputer Dasar", issuer: "ID-Networkers", year: "2024", icon: "settings_ethernet", pdf: "" },
-                            { title: "Optical Fiber Access Network", issuer: "Udemy", year: "2023", icon: "fiber_manual_record", pdf: "" },
-                            { title: "IT and Communication", issuer: "BNSP", year: "2023", icon: "computer", pdf: "" },
-                            { title: "Network Security (WAN)", issuer: "PT Bonet", year: "2023", icon: "gpp_maybe", pdf: "" },
-                        ];
-
-                        document.write(certs.map((c, i) => `
-                            <div onclick="openCert('${c.title}', '${c.issuer}', '${c.year}', '${c.pdf}')" 
-                                 class="group cursor-pointer bg-white dark:bg-surface-dark p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg hover:border-primary transition-all"
-                                 data-aos="fade-up" data-aos-delay="${i * 50}">
-                                <div class="flex items-center gap-4">
-                                    <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                        <span class="material-symbols-outlined">${c.icon}</span>
-                                    </div>
-                                    <div>
-                                        <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">${c.issuer}</div>
-                                        <h3 class="font-bold text-gray-900 dark:text-white leading-tight">${c.title}</h3>
-                                        <div class="mt-1 text-xs text-gray-400">${c.year}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        `).join(''));
-                    </script>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Blueprint Footer -->
-    <footer class="bg-blueprint text-white pt-24 pb-32 md:pb-12 border-t border-white/10 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
-                <div>
-                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-6">Ready to Engineer<br><span
-                            class="text-primary">The Next Big Thing?</span></h2>
-                    <p class="text-gray-400 max-w-md text-lg">I am currently available for internships and full-time
-                        positions in Network Engineering & IoT.</p>
-                </div>
-                <div class="flex justify-center md:justify-end">
-                    <a href="mailto:atillapramudya2004@gmail.com"
-                        class="group relative px-8 py-4 bg-white text-black font-bold text-lg rounded-xl hover:scale-105 transition-transform shadow-lg">
-                        Say Hello 👋
-                        <div
-                            class="absolute inset-0 rounded-xl ring-2 ring-white ring-offset-2 ring-offset-transparent group-hover:ring-offset-primary transition-all">
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 py-8 border-t border-white/10">
-                <div>
-                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-4">Socials</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://www.linkedin.com/in/atillaprmdya" target="_blank" rel="noopener noreferrer"
-                                class="hover:text-primary transition-colors flex items-center gap-2"><img
-                                    src="./assets/images/linkedin_icon.png" class="size-4 rounded-full" loading="lazy">
-                                LinkedIn</a></li>
-                        <li><a href="https://www.instagram.com/atillaprmdya?igsh=ZDd2ZTBodnhhNmx0" target="_blank"
-                                rel="noopener noreferrer"
-                                class="hover:text-primary transition-colors flex items-center gap-2"><img
-                                    src="./assets/images/instagram_icon.png" class="size-4 rounded-full" loading="lazy">
-                                Instagram</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-4">Contact</h4>
-                    <p id="email-text" onclick="copyEmail()"
-                        class="text-gray-400 cursor-pointer hover:text-white transition-colors" title="Click to copy">
-                        atillapramudya2004@gmail.com</p>
-                </div>
-                <div>
-                    <h4 class="text-sm font-bold uppercase tracking-widest text-gray-500 mb-4">Location</h4>
-                    <p class="text-gray-400">Jakarta, Indonesia</p>
-                </div>
-            </div>
-
-            <div
-                class="text-center pt-8 mt-8 border-t border-white/5 text-xs text-gray-600 font-mono flex flex-col items-center gap-2">
-                <span>&copy; 2026 Atilla Pramudya Nugroho. Designed with Engineering Precision.</span>
-                <a href="https://github.com/cutiepie20" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                    View Source Code on GitHub <span class="text-lg">🐙</span>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Mobile Liquid Glass Dock (iOS Style) -->
-    <nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-        <div
-            class="flex items-center gap-1 p-2 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-2xl shadow-black/5 dark:shadow-black/20 ring-1 ring-white/20">
-
-            <a href="#about"
-                class="mobile-nav-item relative group w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300"
-                onclick="animatePress(this)">
-                <span
-                    class="absolute inset-0 bg-primary/10 dark:bg-primary/20 rounded-full scale-0 opacity-0 transition-all duration-300 group-[.active]:scale-100 group-[.active]:opacity-100"></span>
-                <span
-                    class="material-symbols-outlined text-2xl text-gray-500 dark:text-gray-400 group-[.active]:text-primary transition-colors relative z-10">person</span>
-            </a>
-
-            <a href="#projects"
-                class="mobile-nav-item relative group w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300"
-                onclick="animatePress(this)">
-                <span
-                    class="absolute inset-0 bg-primary/10 dark:bg-primary/20 rounded-full scale-0 opacity-0 transition-all duration-300 group-[.active]:scale-100 group-[.active]:opacity-100"></span>
-                <span
-                    class="material-symbols-outlined text-2xl text-gray-500 dark:text-gray-400 group-[.active]:text-primary transition-colors relative z-10">code</span>
-            </a>
-
-            <a href="#academic"
-                class="mobile-nav-item relative group w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300"
-                onclick="animatePress(this)">
-                <span
-                    class="absolute inset-0 bg-primary/10 dark:bg-primary/20 rounded-full scale-0 opacity-0 transition-all duration-300 group-[.active]:scale-100 group-[.active]:opacity-100"></span>
-                <span
-                    class="material-symbols-outlined text-2xl text-gray-500 dark:text-gray-400 group-[.active]:text-primary transition-colors relative z-10">school</span>
-            </a>
-
-            <a href="#community"
-                class="mobile-nav-item relative group w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300"
-                onclick="animatePress(this)">
-                <span
-                    class="absolute inset-0 bg-primary/10 dark:bg-primary/20 rounded-full scale-0 opacity-0 transition-all duration-300 group-[.active]:scale-100 group-[.active]:opacity-100"></span>
-                <span
-                    class="material-symbols-outlined text-2xl text-gray-500 dark:text-gray-400 group-[.active]:text-primary transition-colors relative z-10">diversity_3</span>
-            </a>
-
-            <!-- Separator -->
-            <div class="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-1"></div>
-
-            <!-- Theme Toggle -->
-            <button id="mobile-dock-toggle"
-                class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/10 text-orange-500 dark:text-yellow-300 shadow-inner flex items-center justify-center active:scale-90 transition-transform duration-200">
-                <span class="material-symbols-outlined text-xl animate-spin-slow dark:hidden">wb_sunny</span>
-                <span class="material-symbols-outlined text-xl hidden dark:block">dark_mode</span>
-            </button>
-        </div>
-    </nav>
-
-    <style>
-        /* Spring Animation for Dock Icons */
+        /* Spring Animation */
         @keyframes spring-bounce {
             0% {
                 transform: scale(0.9);
@@ -989,577 +334,981 @@
         .animate-spring {
             animation: spring-bounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-    </style>
 
-    <script>
-        // Mobile Dock Interactions
-        function animatePress(el) {
-            el.querySelector('span.material-symbols-outlined').classList.add('animate-spring');
-            setTimeout(() => {
-                el.querySelector('span.material-symbols-outlined').classList.remove('animate-spring');
-            }, 400);
+        /* Custom Cursor Styles */
+        .cursor-dot,
+        .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 10000;
+            pointer-events: none;
+            display: none;
+            /* Hidden by default (mobile), shown on desktop via JS */
         }
 
-        // Active State Tracking (Scroll Spy)
-        const sections = document.querySelectorAll('section');
-        const navItems = document.querySelectorAll('.mobile-nav-item');
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-primary);
+        }
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 300)) {
-                    current = section.getAttribute('id');
-                }
-            });
+        .cursor-outline {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--color-primary);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
 
-            navItems.forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
-            });
-        });
+        @media (pointer: fine) {
 
-        // Mobile Theme Toggle Link
-        document.getElementById('mobile-dock-toggle').addEventListener('click', () => {
-            const isDark = document.documentElement.classList.contains('dark');
-            setTheme(!isDark);
-        });
-    </script>
+            .cursor-dot,
+            .cursor-outline {
+                display: block;
+            }
+        }
 
-    <!-- Project Details Modal -->
-    <div id="projectModal"
-        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md p-4">
+        body:hover .cursor-outline {
+            opacity: 1;
+        }
+
+        /* Hover states for cursor */
+        body.hovering .cursor-outline {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(83, 151, 185, 0.1);
+            border-color: transparent;
+        }
+
+        /* Footer Grid Pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            mask-image: linear-gradient(to top, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to top, black 40%, transparent 100%);
+        }
+
+        /* Tech Bubble (iOS Style) */
+        .tech-bubble {
+            @apply flex items-center justify-center px-6 py-4 bg-white/60 dark:bg-white/5 backdrop-blur-md border border-white/20 rounded-2xl text-sm font-bold text-gray-800 dark:text-gray-100 shadow-sm cursor-default select-none transition-all duration-500 ease-[cubic-bezier(0.34, 1.56, 0.64, 1)];
+        }
+
+        .tech-bubble:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(83, 151, 185, 0.5);
+            color: #5397B9;
+            box-shadow: 0 20px 40px -10px rgba(83, 151, 185, 0.5);
+            z-index: 10;
+        }
+
+        /* 3D Levitation Effect */
+        .hover-levitate {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hover-levitate:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2);
+            border-color: rgba(83, 151, 185, 0.5);
+            /* Primary Blue */
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Noise Texture Overlay -->
+    <div class="bg-noise"></div>
+
+    <!-- Ambient Background Blobs (Hero) -->
+    <div class="fixed top-0 left-0 w-full h-screen overflow-hidden -z-10 pointer-events-none">
         <div
-            class="modal-content bg-white dark:bg-surface-dark w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 max-h-[90vh] overflow-y-auto no-scrollbar">
+            class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/10 dark:bg-primary/20 rounded-full blur-[100px] animate-blob mix-blend-multiply dark:mix-blend-screen opacity-70">
+        </div>
+        <div
+            class="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-accent/20 dark:bg-accent/10 rounded-full blur-[100px] animate-blob animation-delay-2000 mix-blend-multiply dark:mix-blend-screen opacity-70">
+        </div>
+        <div
+            class="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-sky-300/20 dark:bg-indigo-500/10 rounded-full blur-[100px] animate-blob animation-delay-4000 mix-blend-multiply dark:mix-blend-screen opacity-70">
+        </div>
+    </div>
 
-            <!-- Close Button -->
-            <button onclick="closeProject()"
-                class="absolute top-4 right-4 z-20 size-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors">
-                <span class="material-symbols-outlined">close</span>
-            </button>
+    <div id="preloader">
+        <div class="terminal-text">
+            <div id="terminal-content"></div>
+            <span class="cursor-block"></span>
+        </div>
+    </div>
 
-            <!-- Modal Content -->
-            <div class="grid md:grid-cols-2">
-                <!-- Media Side (Dynamic: Image / PDF / Gallery) -->
-                <div id="modalMediaContainer"
-                    class="h-64 md:h-full bg-gray-200 dark:bg-black relative overflow-hidden group">
-                    <!-- 1. Default Image -->
-                    <img id="modalProjectImage" src=""
-                        class="w-full h-full object-cover absolute inset-0 z-10 transition-opacity duration-300"
-                        alt="Project Cover">
+    <div id="scroll-progress"></div>
 
-                    <!-- 2. PDF Preview (Iframe) -->
-                    <iframe id="modalProjectFrame"
-                        class="w-full h-full absolute inset-0 z-20 opacity-0 pointer-events-none bg-white transition-opacity duration-300"
-                        frameborder="0"></iframe>
+    <header id="main-header" class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 group">
+                <div
+                    class="size-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform">
+                    <span class="material-symbols-outlined text-2xl animate-pulse-slow">settings_input_antenna</span>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-display font-bold text-lg tracking-tight">Atilla Pramudya Nugroho</span>
+                    <span
+                        class="text-[10px] text-gray-500 dark:text-gray-400 font-mono tracking-widest uppercase">Network
+                        Engineer</span>
+                </div>
+            </a>
 
-                    <!-- 3. Mini Gallery Grid -->
-                    <div id="modalProjectGallery"
-                        class="w-full h-full absolute inset-0 z-30 opacity-0 pointer-events-none bg-white dark:bg-black p-4 overflow-y-auto hidden">
-                        <div id="galleryGrid" class="grid grid-cols-2 gap-2">
-                            <!-- Injected Images -->
+            <nav class="hidden md:flex items-center gap-8">
+                <ul class="flex gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
+                    <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+                    <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
+                    <li><a href="#education" class="hover:text-primary transition-colors">Education</a></li>
+                    <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
+                </ul>
+                <div class="h-6 w-px bg-gray-300 dark:bg-gray-700"></div>
+
+                <div class="relative">
+                    <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+                    <label for="theme-toggle" class="toggle-label shadow-inner block overflow-hidden">
+                        <div class="toggle-ball shadow-sm border border-gray-100 dark:border-gray-600">
+                            <span
+                                class="material-symbols-outlined text-[14px] text-orange-400 block dark:hidden">wb_sunny</span>
+                            <span
+                                class="material-symbols-outlined text-[14px] text-accent hidden dark:block">dark_mode</span>
+                        </div>
+                    </label>
+                </div>
+
+                <a href="assets/documents/CV%20ATS%20Atilla%20P.N.pdf"
+                    download="Atilla_Pramudya_Network_Engineer_CV.pdf"
+                    class="px-5 py-2.5 bg-primary hover:bg-primary-hover text-white text-sm font-bold rounded-lg shadow-md transition-all flex items-center gap-2">
+                    <span>Download CV</span>
+                    <span class="material-symbols-outlined text-sm">download</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-32 md:pb-0">
+        <section id="about" class="min-h-[90vh] flex items-center px-6 py-10 relative overflow-hidden">
+            <!-- Blobs managed in Fixed Container above -->
+
+            <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="order-2 md:order-1 flex flex-col gap-6" data-aos="fade-right">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary w-fit border border-primary/20 backdrop-blur-sm shadow-sm">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        <span class="text-xs font-bold tracking-wider uppercase">Open to Work</span>
+                    </div>
+
+                    <h1 class="text-fluid-h1 font-extrabold leading-tight text-gray-900 dark:text-white">
+                        Engineering the Future of <span
+                            class="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">Connectivity</span>
+                    </h1>
+
+                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-lg font-mono">
+                        I am a <span id="typewriter" class="font-bold text-gray-900 dark:text-white"></span><span
+                            class="animate-pulse text-primary">|</span>
+                    </p>
+
+                    <p class="text-sm text-gray-500 max-w-lg leading-relaxed">
+                        Bridging the gap between hardware innovation and intelligent networks. Specialized in Fiber
+                        Optic Infrastructure, GPON, and IoT Solutions for sustainable community impact.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mt-2">
+                        <a href="#projects"
+                            class="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full shadow-lg hover:-translate-y-1 transition-all">View
+                            Work</a>
+                        <div class="flex gap-2">
+                            <a href="https://www.linkedin.com/in/atillaprmdya" target="_blank" rel="noopener noreferrer"
+                                class="size-12 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:scale-110 transition-transform shadow-sm p-0.5">
+                                <img src="./assets/images/linkedin_icon.png" loading="lazy"
+                                    class="w-full h-full rounded-full object-cover">
+                            </a>
+                            <a href="mailto:atillapramudya2004@gmail.com"
+                                class="size-12 rounded-full bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 flex items-center justify-center hover:scale-110 transition-transform shadow-sm">
+                                <span class="material-symbols-outlined">mail</span>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Expand Button (Optional for UX) -->
-                    <button id="mediaExpandBtn" onclick="toggleMediaView()"
-                        class="absolute bottom-4 right-4 z-40 bg-white/90 dark:bg-black/90 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity hidden">
-                        <span class="material-symbols-outlined text-sm">open_in_full</span>
-                    </button>
+                    <div
+                        class="grid grid-cols-3 gap-6 mt-8 p-6 bg-white/50 dark:bg-surface-dark/50 backdrop-blur-md rounded-2xl shadow-sm border border-white/20 dark:border-gray-800">
+                        <div><span class="block text-2xl font-bold tracking-tight">3+</span><span
+                                class="text-xs text-gray-500 uppercase font-bold tracking-wide">Years Exp</span></div>
+                        <div><span class="block text-2xl font-bold text-primary tracking-tight">Top 50</span><span
+                                class="text-xs text-gray-500 uppercase font-bold tracking-wide">Innovillage</span></div>
+                        <div><span class="block text-2xl font-bold text-accent tracking-tight">Rp 71M+</span><span
+                                class="text-xs text-gray-500 uppercase font-bold tracking-wide">Grant Funding</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Text Side -->
-                <div class="p-8 md:p-10 flex flex-col h-full overflow-y-auto no-scrollbar">
-                    <div class="mb-6">
-                        <span id="modalProjectDate"
-                            class="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">DATE</span>
-                        <h3 id="modalProjectTitle"
-                            class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2 leading-tight">Project
-                            Title</h3>
+                <div class="order-1 md:order-2 relative" data-aos="fade-left">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3 scale-105 -z-10">
                     </div>
-
-                    <div class="prose dark:prose-invert mb-8">
-                        <p id="modalProjectDesc" class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-                            Description goes here...
-                        </p>
+                    <div
+                        class="aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 relative bg-gray-200 group">
+                        <img src="./assets/images/profile.jpg" loading="lazy"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div
+                            class="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-black/80 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="size-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                    <span class="material-symbols-outlined">bolt</span>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase tracking-wide">Focus</p>
+                                    <p class="text-sm font-bold text-gray-900 dark:text-white">IoT & Network
+                                        Infrastructure</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div id="modalCertSection" class="mb-6 hidden">
-                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Evidence</h4>
-                        <a id="modalCertLink" href="#" target="_blank"
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg text-sm font-semibold hover:bg-primary hover:text-white transition-colors">
-                            <span>View Activity Certificate</span>
-                            <span class="text-lg">📄</span>
+        <div class="section-divider"></div>
+
+        <div class="w-full py-20 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 text-center relative z-10 mb-10">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-500">Tech Stack & Tools</p>
+            </div>
+
+            <!-- Static iOS Bubble Grid -->
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <span class="tech-bubble">Fiber Optic Splicing</span>
+                <span class="tech-bubble">GPON Infrastructure</span>
+                <span class="tech-bubble">IoT Development (ESP32)</span>
+                <span class="tech-bubble">Network Administration</span>
+                <span class="tech-bubble">Cisco Packet Tracer</span>
+                <span class="tech-bubble">Linux / Debian OS</span>
+                <span class="tech-bubble">Python Programming</span>
+                <span class="tech-bubble">Microcontrollers</span>
+                <span class="tech-bubble">Cloud Computing</span>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <section id="experience" class="py-24 px-6 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center gap-4 mb-12">
+                    <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white">Experience</h2>
+                    <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
+                </div>
+                <!-- PLN Icon Plus -->
+                <div class="group bg-white/80 dark:bg-surface-dark/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 mb-8"
+                    data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">PLN Icon Plus
+                            </h3>
+                            <p class="text-primary font-semibold">Engineering Activation & Maintenance</p>
+                        </div>
+                        <span
+                            class="bg-gray-100 dark:bg-gray-800 text-xs font-bold px-4 py-1 rounded-full h-fit tracking-wide">May
+                            2023 – Sep 2024</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Executed end-to-end activation and installation of Iconnet fiber optic networks from
+                            provider to customer premises.</li>
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Performed precision fiber optic cable jointing and troubleshooting for Link LOSS recovery to
+                            ensure network stability.</li>
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Ensured strict compliance with Occupational Health and Safety (K3) standards during
+                            high-risk installations.</li>
+                    </ul>
+                </div>
+
+                <!-- Access Data Management Intern -->
+                <div class="group bg-white/80 dark:bg-surface-dark/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 mb-8"
+                    data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Telkom Witel
+                                Bogor</h3>
+                            <p class="text-primary font-semibold">Access Data Management Intern</p>
+                        </div>
+                        <span
+                            class="bg-gray-100 dark:bg-gray-800 text-xs font-bold px-4 py-1 rounded-full h-fit tracking-wide">Jun
+                            2022 – Aug 2022</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Supervised provisioning technicians during on-site installations and maintenance to ensure
+                            quality assurance.</li>
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Analyzed FTTH operational processes through strategic visits to the Automated Telephone
+                            Central (STO).</li>
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Validated port utilization on ODP Indihome via the Valins system to prevent data redundancy.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Valins Service -->
+                <div class="group bg-white/80 dark:bg-surface-dark/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300"
+                    data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Telkom Witel
+                                Bogor</h3>
+                            <p class="text-primary font-semibold">Technical Assistant (Valins Service)</p>
+                        </div>
+                        <span
+                            class="bg-gray-100 dark:bg-gray-800 text-xs font-bold px-4 py-1 rounded-full h-fit tracking-wide">Aug
+                            2022 – Dec 2022</span>
+                    </div>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Optimized ODP (Optical Distribution Point) data integrity within the Oracle UIM system to
+                            match field conditions.</li>
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Conducted field surveys for FTTH network construction, adhering to Telkom's rigorous SOPs.
+                        </li>
+                        <li class="flex gap-2"><span
+                                class="text-primary material-symbols-outlined text-sm pt-1">check_circle</span>
+                            Digitized network assets by mapping ODC to ODP routes using Google Earth for accurate
+                            spatial documentation.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="education" class="py-24 px-6 bg-gray-50/50 dark:bg-[#12141a]/50 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center gap-4 mb-12">
+                    <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white">Education</h2>
+                    <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:border-primary transition-all"
+                        data-aos="fade-up">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Telkom University
+                            Jakarta</h3>
+                        <p class="text-primary font-semibold mb-4">S1 Telecommunication Engineering (GPA 3.78)</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Focus on Network Infrastructure & IoT
+                            Project Management.</p>
+                    </div>
+                    <div class="bg-white dark:bg-surface-dark p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:border-primary transition-all"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">SMK Al Muhtadin
+                            Depok</h3>
+                        <p class="text-primary font-semibold mb-4">Engineering Network & Computer</p>
+                        <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                            <li>• Lulusan Terbaik (Nilai: 84)</li>
+                            <li>• Debian Linux Administration (Install, Config)</li>
+                            <li>• Cisco Packet Tracer & Mikrotik Basics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24 px-6 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white">Featured Projects</h2>
+                    <p class="text-gray-500 mt-2">High-impact engineering initiatives.</p>
+                </div>
+                <div id="projects-grid" class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                </div>
+            </div>
+        </section>
+
+        <section id="community" class="py-24 px-6 bg-gray-50/50 dark:bg-[#12141a]/50 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <h2
+                    class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white mb-12 border-l-4 border-primary pl-6">
+                    Community Service</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Siaga Galuga -->
+                    <div
+                        class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover-levitate group">
+                        <div class="h-48 bg-cover bg-center"
+                            style="background-image: url('./assets/images/projects/galuga.png');"></div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight leading-tight">
+                                Siaga Galuga</h3>
+                            <p class="text-primary text-xs font-bold uppercase mb-2 tracking-wide">IoT Security</p>
+                            <p class="text-sm text-gray-500">Deployed a comprehensive IoT Smart Village security system
+                                featuring real-time environmental monitoring to enhance safety in Desa Galuga.</p>
+                        </div>
+                    </div>
+                    <!-- Al Jambani -->
+                    <div
+                        class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover-levitate group">
+                        <div class="h-48 bg-cover bg-center"
+                            style="background-image: url('./assets/images/projects/Al Jambani.JPG');"></div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight leading-tight">Al
+                                Jambani Boarding</h3>
+                            <p class="text-primary text-xs font-bold uppercase mb-2 tracking-wide">Health Tech</p>
+                            <p class="text-sm text-gray-500">Developed an analog-based blood type detection tool and
+                                conducted hands-on technical training for students and teachers.</p>
+                        </div>
+                    </div>
+                    <!-- SLB Kuntum Mekar -->
+                    <div
+                        class="bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover-levitate group">
+                        <div class="h-48 bg-cover bg-center"
+                            style="background-image: url('./assets/images/projects/SLB Kuntum Mekar.jpeg');"></div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white tracking-tight leading-tight">SLB
+                                Kuntum Mekar</h3>
+                            <p class="text-primary text-xs font-bold uppercase mb-2 tracking-wide">Assistive EdTech</p>
+                            <p class="text-sm text-gray-500">Engineered interactive biology learning kits tailored for
+                                special needs students to facilitate accessible STEM education.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="academic" class="py-24 px-6 bg-blueprint text-white relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-center gap-4 mb-12">
+                    <h2 class="text-fluid-h2 font-extrabold text-white">Academic Highlights</h2>
+                    <div class="h-px flex-1 bg-gray-700"></div>
+                </div>
+                <div id="academic-grid" class="grid md:grid-cols-2 gap-8">
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-24 px-6 relative z-10">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-fluid-h2 font-extrabold text-gray-900 dark:text-white mb-12">Certifications</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                    <script>
+                        const certs = [
+                            { title: "Computer Network Implementation", issuer: "BNSP", year: "2025" },
+                            { title: "Junior Network Administrator", issuer: "BNSP", year: "2024" },
+                            { title: "Junior Network Administrator", issuer: "Kemnaker RI", year: "2024", pdf: "./assets/documents/Sertifikat%20Network%20Administrator%20Muda%20Kemnaker.pdf" },
+                            { title: "Networking Basics", issuer: "Cisco", year: "2024" },
+                            { title: "Cisco Fundamentals", issuer: "ID-Networkers", year: "2024" },
+                            { title: "Optical Fiber Access Network (PON/FTTH)", issuer: "Udemy", year: "2023" },
+                            { title: "Network Security Troubleshooting (WAN)", issuer: "PT Bonet", year: "2023" }
+                        ];
+                        document.write(certs.map(c => `
+                            <div onclick="openCert('${c.title}', '${c.issuer}', '${c.year}', '${c.pdf || ''}')" 
+                                class="group cursor-pointer bg-white dark:bg-surface-dark p-6 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-primary transition-all shadow-sm">
+                                <div class="flex items-center gap-4">
+                                    <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><span class="material-symbols-outlined">badge</span></div>
+                                    <div>
+                                        <div class="text-[10px] font-bold text-gray-500 uppercase tracking-wide">${c.issuer}</div>
+                                        <h3 class="font-bold text-gray-900 dark:text-white leading-tight">${c.title}</h3>
+                                        <div class="mt-1 text-xs text-gray-400">${c.year}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join(''));
+                    </script>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="relative bg-[#050505] text-white pt-32 pb-12 overflow-hidden border-t border-white/5 font-sans">
+        <!-- 1. VISUAL DESIGN: Watermark, Glow & Grid Pattern -->
+        <div class="absolute inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+        <div
+            class="absolute bottom-[-5%] left-1/2 -translate-x-1/2 text-[15rem] md:text-[20rem] font-black text-white/[0.02] pointer-events-none whitespace-nowrap select-none font-display leading-none z-0">
+            NETWORK
+        </div>
+        <div
+            class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[40vw] h-[400px] bg-primary/20 blur-[120px] rounded-full pointer-events-none z-0 mix-blend-screen">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <!-- 2. TOP ROW: Call to Action -->
+            <div class="flex flex-col items-center justify-center text-center mb-24" data-aos="fade-up">
+                <h2
+                    class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
+                    Have an idea?
+                </h2>
+                <a href="mailto:atillapramudya2004@gmail.com"
+                    class="group relative inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-transform duration-300">
+                    <span>Let's Connect</span>
+                    <span
+                        class="size-8 bg-black text-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                        <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- 3. MIDDLE ROW: Info Grid -->
+            <div class="grid md:grid-cols-3 gap-12 border-t border-white/10 pt-16 pb-12">
+                <!-- Col 1: Navigation -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">Explore</h4>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors w-fit">Home</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition-colors w-fit">Projects</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors w-fit">About</a>
+                </div>
+
+                <!-- Col 2: Socials -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">Connect</h4>
+                    <div class="flex gap-4">
+                        <a href="https://linkedin.com/in/atillaprmdya" target="_blank" rel="noopener noreferrer"
+                            class="size-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors text-white">
+                            <span class="material-symbols-outlined text-lg">work</span>
+                            <!-- Replacing generic icon with symbol for simplicity if image not preferred, but keeping consistency -->
+                        </a>
+                        <a href="https://github.com/cutiepie20" target="_blank" rel="noopener noreferrer"
+                            class="size-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors text-white">
+                            <span class="material-symbols-outlined text-lg">code</span>
+                        </a>
+                        <a href="mailto:atillapramudya2004@gmail.com"
+                            class="size-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors text-white">
+                            <span class="material-symbols-outlined text-lg">mail</span>
                         </a>
                     </div>
+                </div>
 
-                    <div class="mt-auto">
-                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tech Stack</p>
-                        <div id="modalProjectTags" class="flex flex-wrap gap-2">
-                            <!-- Tags injected here -->
-                        </div>
+                <!-- Col 3: Live Status -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">Status</h4>
+                    <div class="flex items-center gap-3 text-gray-400">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        <span>Based in Jakarta, ID</span>
+                    </div>
+                    <div class="text-2xl font-mono font-bold text-white tracking-widest">
+                        <span id="jakarta-time">00:00:00</span> <span class="text-xs text-gray-500 align-top">WIB</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Certificate Modal (Legacy Support) -->
-    <div id="certModal"
+            <!-- 4. BOTTOM BAR -->
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/5 text-xs text-gray-600 font-mono">
+                <p>&copy; 2026 Atilla Pramudya. Crafted with <span class="text-yellow-500">⚡</span> and <span
+                        class="text-amber-700">☕</span></p>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                    class="flex items-center gap-2 hover:text-white transition-colors group cursor-pointer">
+                    BACK TO TOP
+                    <span
+                        class="material-symbols-outlined text-sm group-hover:-translate-y-1 transition-transform">arrow_upward</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <div
+            class="flex items-center gap-2 p-2 rounded-full bg-white/80 dark:bg-black/60 backdrop-blur-2xl border border-white/20 shadow-2xl">
+            <a href="#about" class="p-3 rounded-full hover:bg-white/10" onclick="animatePress(this)"><span
+                    class="material-symbols-outlined text-gray-500 dark:text-gray-400">person</span></a>
+            <a href="#projects" class="p-3 rounded-full hover:bg-white/10" onclick="animatePress(this)"><span
+                    class="material-symbols-outlined text-gray-500 dark:text-gray-400">code</span></a>
+            <a href="#academic" class="p-3 rounded-full hover:bg-white/10" onclick="animatePress(this)"><span
+                    class="material-symbols-outlined text-gray-500 dark:text-gray-400">school</span></a>
+            <a href="#community" class="p-3 rounded-full hover:bg-white/10" onclick="animatePress(this)"><span
+                    class="material-symbols-outlined text-gray-500 dark:text-gray-400">diversity_3</span></a>
+        </div>
+    </nav>
+
+    <div id="projectModal"
         class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
         <div
-            class="modal-content bg-white dark:bg-surface-dark w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl relative border border-white/10">
-            <button onclick="closeCert()"
-                class="absolute top-4 right-4 z-10 size-10 bg-black/10 hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20 text-gray-800 dark:text-white rounded-full flex items-center justify-center transition-colors">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-            <div class="p-8">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-                        <span class="material-symbols-outlined text-3xl">verified</span>
-                    </div>
-                    <div>
-                        <h3 id="modalTitle" class="text-2xl font-bold text-gray-900 dark:text-white">Certificate Title
-                        </h3>
-                        <p id="modalIssuer" class="text-primary font-bold uppercase text-xs tracking-widest">ISSUER •
-                            YEAR</p>
+            class="modal-content bg-white dark:bg-surface-dark w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProject()"
+                class="absolute top-4 right-4 z-20 size-10 bg-black/50 text-white rounded-full flex items-center justify-center"><span
+                    class="material-symbols-outlined">close</span></button>
+            <div class="grid md:grid-cols-2 h-full">
+                <div class="h-64 md:h-full bg-gray-200 dark:bg-black relative">
+                    <img id="modalImg" src="" class="w-full h-full object-cover">
+                    <iframe id="modalFrame" class="w-full h-full absolute inset-0 hidden"></iframe>
+                    <div id="modalGallery"
+                        class="w-full h-full absolute inset-0 bg-black hidden p-4 overflow-y-auto grid grid-cols-2 gap-2">
                     </div>
                 </div>
-                <!-- Logic Container -->
-                <div id="certPreviewContainer"
-                    class="w-full aspect-video bg-gray-100 dark:bg-black/50 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-700 relative overflow-hidden">
-                    <!-- JS Injects Iframe -->
-                </div>
-                <div class="mt-6 flex justify-end">
-                    <button id="modalActionBtn"
-                        class="hidden px-6 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary-hover transition-colors">Open
-                        Full PDF</button>
-                    <!-- Fallback Button if needed -->
-                    <button id="modalDisabledBtn"
-                        class="hidden px-6 py-3 bg-gray-300 dark:bg-gray-700 text-gray-500 rounded-lg font-bold cursor-not-allowed">No
-                        PDF Available</button>
+                <div class="p-8">
+                    <h3 id="modalTitle" class="text-3xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight">
+                        Title</h3>
+                    <p id="modalDesc" class="text-gray-600 dark:text-gray-400 mb-6">Desc</p>
+                    <div id="modalTags" class="flex flex-wrap gap-2"></div>
+                    <a id="modalCertBtn" href="#" target="_blank" rel="noopener noreferrer"
+                        class="hidden mt-6 inline-block px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-md hover:bg-primary-hover transition-colors">View
+                        Certificate</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <div id="certModal"
+        class="modal fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
+        <div class="modal-content bg-white dark:bg-surface-dark w-full max-w-3xl rounded-2xl p-8 relative">
+            <button onclick="closeCert()" class="absolute top-4 right-4"><span
+                    class="material-symbols-outlined">close</span></button>
+            <h3 id="certTitle" class="text-2xl font-bold dark:text-white mb-4 tracking-tight">Cert Title</h3>
+            <div id="certContainer"
+                class="w-full aspect-video bg-gray-100 flex items-center justify-center rounded-lg overflow-hidden">
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Init AOS
-        AOS.init({ duration: 800, once: true, offset: 50 });
+        // --- 1. SYSTEM INITIALIZATION ---
+        AOS.init({ duration: 800, once: true });
 
-        // Dark Mode Logic
-        const toggleCheckbox = document.getElementById('theme-toggle');
-        const mobileToggle = document.getElementById('mobile-theme-toggle');
-        const html = document.documentElement;
+        // Custom Cursor Logic
+        const cursorDot = document.querySelector('[data-cursor-dot]');
+        const cursorOutline = document.querySelector('[data-cursor-outline]');
 
-        function setTheme(isDark) {
-            if (isDark) {
-                html.classList.add('dark');
-                localStorage.theme = 'dark';
-                toggleCheckbox.checked = true;
-            } else {
-                html.classList.remove('dark');
-                localStorage.theme = 'light';
-                toggleCheckbox.checked = false;
-            }
-        }
+        window.addEventListener('mousemove', function (e) {
+            const posX = e.clientX;
+            const posY = e.clientY;
 
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            setTheme(true);
-        } else {
-            setTheme(false);
-        }
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
 
-        toggleCheckbox.addEventListener('change', (e) => setTheme(e.target.checked));
-        mobileToggle.addEventListener('click', () => {
-            const isDark = html.classList.contains('dark');
-            setTheme(!isDark);
+            // Outline follows with delay (using web animation for smoothness)
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
         });
 
-        // Smart Header
-        let lastScroll = 0;
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll <= 0) {
-                header.classList.remove('header-hidden', 'shadow-md');
-            } else if (currentScroll > lastScroll && currentScroll > 100) {
-                header.classList.add('header-hidden');
-            } else {
-                header.classList.remove('header-hidden');
-                header.classList.add('shadow-md');
-            }
-            lastScroll = currentScroll;
+        // Add hover effect to cursor on clickable elements
+        const clickables = document.querySelectorAll('a, button, .cursor-pointer');
+        clickables.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
         });
 
-        // --- CYBER FEATURES ---
-        const scrollProgress = document.getElementById('scroll-progress');
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const percentage = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = percentage + '%';
-        });
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            const terminal = document.getElementById('terminal-content');
 
-        const roles = ["Network Engineer", "IoT Developer", "Fiber Optic Specialist"];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typeWriterElement = document.getElementById('typewriter');
-        const typingDelay = 100;
-        const erasingDelay = 50;
-        const newTextDelay = 2000;
+            // Safety timeout (Force remove after 3s)
+            setTimeout(() => { preloader.classList.add('loaded'); }, 3500);
 
-        function type() {
-            const currentRole = roles[roleIndex];
-            if (isDeleting) {
-                typeWriterElement.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typeWriterElement.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-            }
-            if (!isDeleting && charIndex === currentRole.length) {
-                isDeleting = true;
-                setTimeout(type, newTextDelay);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                setTimeout(type, 500);
-            } else {
-                setTimeout(type, isDeleting ? erasingDelay : typingDelay);
-            }
-        }
-        document.addEventListener('DOMContentLoaded', type);
+            // Sequence
+            const lines = [
+                "> Initializing connection...",
+                "> Loading network modules...",
+                "> Verifying security certificates...",
+                "> Access GRANTED."
+            ];
 
-        // Preloader Logic with Safety Fail-safe
-        const preloader = document.getElementById('preloader');
-        const terminalContent = document.getElementById('terminal-content');
-        const bootLines = [
-            "> System initializing...",
-            "> Loading network modules...",
-            "> Verifying secure connection...",
-            "> Connect to port 8080...",
-            "> Access GRANTED."
-        ];
-
-        function hidePreloader() {
-            preloader.classList.add('loaded');
-            // Ensure it doesn't block clicks even if visibility fails
-            setTimeout(() => {
-                preloader.style.display = 'none';
-                preloader.style.pointerEvents = 'none';
-            }, 800);
-            sessionStorage.setItem('booted', 'true');
-        }
-
-        async function runBootSequence() {
-            // 1. Immediate Check: If already booted, hide instantly
-            if (sessionStorage.getItem('booted')) {
-                preloader.style.display = 'none';
-                preloader.style.pointerEvents = 'none';
-                return;
-            }
-
-            // 2. Safety Timeout: Force hide after 3.5s no matter what
-            const safetyTimer = setTimeout(() => {
-                console.warn('Boot sequence timed out, forcing hide.');
-                hidePreloader();
-            }, 3500);
-
-            // 3. Run Animation
-            try {
-                for (const line of bootLines) {
+            let lineIndex = 0;
+            function printLine() {
+                if (lineIndex < lines.length) {
                     const p = document.createElement('div');
-                    p.textContent = line;
-                    terminalContent.appendChild(p);
-                    // Random typing delay
-                    await new Promise(r => setTimeout(r, Math.random() * 300 + 100));
+                    p.textContent = lines[lineIndex];
+                    terminal.appendChild(p);
+                    lineIndex++;
+                    setTimeout(printLine, 500);
+                } else {
+                    setTimeout(() => { preloader.classList.add('loaded'); }, 800);
                 }
-                // Short pause at end
-                await new Promise(r => setTimeout(r, 500));
-
-                // Clear timer since we finished normally
-                clearTimeout(safetyTimer);
-                hidePreloader();
-            } catch (e) {
-                console.error("Boot animation error:", e);
-                hidePreloader(); // Hide on error
             }
-        }
+            printLine();
+        });
 
-        // Initialize
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', runBootSequence);
-        } else {
-            runBootSequence();
-        }
-
-        // Copy Email
-        function copyEmail() {
-            const email = "atillapramudya2004@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                const toast = document.getElementById('toast');
-                toast.classList.add('show');
-                setTimeout(() => { toast.classList.remove('show'); }, 3000);
-            });
-        }
-
-        // --- PROJECTS DATA ---
+        // --- 2. DATA ARRAYS (CRITICAL) ---
         const projects = [
             {
-                id: 'savia',
                 title: 'SAVIA Project',
-                date: 'Nov 2025',
                 subtitle: 'Project Leader',
+                date: 'Nov 2025',
                 image: './assets/images/projects/savia.jpg',
-                description: 'Managed a Rp 50M grant for clean water sanitation. Built an IoT-based water distribution system and real-time digital dashboard. Mendapatkan bantuan CSR dari PT Telkom Indonesia.',
+                desc: 'Secured Rp 50 Million CSR Funding from Telkom Indonesia. Spearheaded the development of a 3-stage water filtration system integrated with a real-time IoT dashboard. Deployed a 200WP Solar Panel and Battery Management System to ensure energy autonomy for remote village sanitation.',
+                tags: ['Solar Cell', 'Water Filtration', 'IoT', 'CSR'],
                 stats: 'Rp 50M Funding',
-                statColor: 'bg-green-500 text-white',
-                tags: ['Solar Cell', 'Water Filtration', 'Microcontroller/IoT', 'CSR Implementation'],
-                featured: true,
-                certificate: './assets/documents/Penghargaan%20Sertifikat%20SAVIA.pdf'
+                color: 'bg-green-500',
+                cert: './assets/documents/Penghargaan%20Sertifikat%20SAVIA.pdf'
             },
             {
-                id: 'harmony',
                 title: 'Harmony-IoT',
-                date: 'Dec 2024',
                 subtitle: 'Team Leader',
+                date: 'Dec 2024',
                 image: './assets/images/projects/harmony.jpg',
-                description: 'Designed a renewable energy (pico hydro & solar) water storage system with automated pH monitoring. Secured funding of Rp 21 Million from Innovillage 2024.',
+                desc: 'Ranked Top 50 National (9th Place) in Innovillage 2024 with a Rp 21 Million Grant. Designed a hybrid renewable energy system (Pico-Hydro & Solar) coupled with automated pH monitoring to provide sustainable clean water solutions for rural communities.',
+                tags: ['Renewable Energy', 'Automation', 'Hydro'],
                 stats: 'Top 50 National',
-                statColor: 'bg-primary text-white',
-                tags: ['Solar/Hydro', 'Smart Monitoring', 'Renewable Energy', 'Automation'],
-                featured: true,
-                certificate: './assets/documents/Penghargaan%20Sertifikat%20Innovillage%20Top%2050.pdf'
+                color: 'bg-blue-500',
+                cert: './assets/documents/Penghargaan%20Sertifikat%20Innovillage%20Top%2050.pdf'
             }
         ];
 
-        // --- ACADEMIC KEY PROJECTS (NEW) ---
-        const academicData = [
+        const academic = [
             {
-                id: 'optik',
-                title: 'Perancangan Jaringan FTTH Cluster Cibinong',
-                course: 'Sistem Komunikasi Optik',
-                image: '', // No specific thumb needed, logic handles fallback
-                description: 'Melakukan perancangan jaringan akses fiber optik dari STO ke rumah pelanggan menggunakan Google Earth dan OptiSystem. Perhitungan Link Budget dan Rise Time Budget untuk memastikan kelayakan jaringan.',
-                tech: ['OptiSystem', 'Google Earth', 'Excel'],
-                mediaType: 'pdf',
-                mediaSource: './assets/documents/tugas_optik.pdf'
+                title: 'FTTH Network Design',
+                course: 'Optical Communication Systems',
+                desc: 'Designed a complete Fiber-to-the-Home (FTTH) network for the Cibinong Cluster. Utilized OptiSystem and Google Earth to calculate Link Power Budget and Rise Time Budget, ensuring optimal network performance.',
+                media: 'pdf',
+                src: './assets/documents/tugas_optik.pdf',
+                tags: ['OptiSystem', 'Excel']
             },
             {
-                id: 'jarkom',
-                title: 'Simulasi Smart Office Network',
-                course: 'Jaringan Komputer Lanjut',
-                image: '',
-                description: 'Membangun topologi jaringan untuk kantor 3 lantai dengan implementasi VLAN, OSPF Routing, dan keamanan Port Security. Termasuk konfigurasi IoT server untuk AC dan Lampu otomatis.',
-                tech: ['Cisco Packet Tracer', 'CLI', 'Networking'],
-                mediaType: 'gallery',
-                mediaSource: [
-                    './assets/images/academic/pkt1.jpg',
-                    './assets/images/academic/pkt2.jpg',
-                    './assets/images/academic/pkt3.jpg'
-                ]
+                title: 'Smart Office Simulation',
+                course: 'Advanced Computer Networks',
+                desc: 'Architected a multi-floor office network simulation using Cisco Packet Tracer. Configured complex VLANs, OSPF Routing, and IoT Server logic to automate building utilities (AC/Lights).',
+                media: 'gallery',
+                src: ['./assets/images/academic/pkt1.jpg', './assets/images/academic/pkt2.jpg'],
+                tags: ['Cisco Packet Tracer', 'Networking']
             }
         ];
 
-        // Render Standard Projects
-        const projectsContainer = document.getElementById('projects-grid');
-        projectsContainer.innerHTML = projects.map((p, i) => `
-            <div onclick="openProject('${i}')" class="group cursor-pointer bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="${i * 100}">
+        // --- 3. RENDER FUNCTIONS ---
+        // Render Featured Projects
+        const pGrid = document.getElementById('projects-grid');
+        pGrid.innerHTML = projects.map((p, i) => `
+            <div onclick="openProject(${i})" class="group cursor-pointer bg-white dark:bg-surface-dark rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg hover-levitate" data-aos="fade-up" data-aos-delay="${i * 100}">
                 <div class="h-56 bg-cover bg-center relative overflow-hidden">
                     <img src="${p.image}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="${p.title}">
                     <div class="absolute inset-0 bg-black/40 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                         <span class="text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
                     </div>
-                    <div class="absolute top-4 right-4 ${p.statColor} text-xs font-bold px-3 py-1 rounded shadow-lg">
+                    <div class="absolute top-4 right-4 ${p.color} text-white text-xs font-bold px-3 py-1 rounded shadow-lg">
                         ${p.stats}
                     </div>
                 </div>
                 <div class="p-6">
                     <div class="flex justify-between items-start mb-3">
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary transition-colors">${p.title}</h3>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary transition-colors tracking-tight">${p.title}</h3>
                             <p class="text-xs font-mono text-primary uppercase">${p.subtitle}</p>
                         </div>
                         <span class="text-xs text-gray-500 font-bold bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">${p.date}</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">${p.description}</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">${p.desc}</p>
                     <div class="flex flex-wrap gap-2">
-                        ${p.tags.slice(0, 2).map(t => `<span class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">${t}</span>`).join('')}
-                        ${p.tags.length > 2 ? `<span class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">+${p.tags.length - 2}</span>` : ''}
+                        ${p.tags.slice(0, 2).map(t => `<span class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded tracking-wide">${t}</span>`).join('')}
+                        ${p.tags.length > 2 ? `<span class="px-2 py-1 text-[10px] font-bold uppercase bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded tracking-wide">+${p.tags.length - 2}</span>` : ''}
                     </div>
                 </div>
             </div>
         `).join('');
 
         // Render Academic Projects
-        document.getElementById('academic-grid').innerHTML = academicData.map((p, i) => `
-            <div onclick="openAcademic('${i}')" class="group cursor-pointer bg-white dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-800 hover:border-primary transition-all shadow-sm hover:shadow-lg overflow-hidden flex flex-col items-start" data-aos="fade-up" data-aos-delay="${i * 100}">
-                <div class="w-full h-40 bg-gray-100 dark:bg-gray-800 relative overflow-hidden flex items-center justify-center">
-                     <div class="absolute inset-0 bg-blueprint opacity-10"></div>
-                     <!-- Dynamic Icon based on Media Type -->
-                     <span class="material-symbols-outlined text-4xl text-gray-300 dark:text-gray-600 group-hover:scale-110 transition-transform duration-500">
-                        ${p.mediaType === 'pdf' ? 'picture_as_pdf' : 'hub'}
-                     </span>
-                     <div class="absolute bottom-3 left-4 right-4">
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-primary bg-white/90 dark:bg-black/90 px-2 py-1 rounded shadow-sm backdrop-blur-sm line-clamp-1">${p.course}</span>
-                     </div>
-                </div>
-                <div class="p-6 flex-1 flex flex-col w-full">
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 leading-tight group-hover:text-primary transition-colors line-clamp-2">${p.title}</h3>
-                    <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-3 mb-4 flex-1 leading-relaxed">${p.description}</p>
-                    <div class="w-full pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs font-semibold text-gray-500">
-                        <div class="flex items-center gap-1">
-                             <span class="material-symbols-outlined text-sm">${p.mediaType === 'pdf' ? 'menu_book' : 'imagesmode'}</span>
-                             <span>${p.mediaType === 'pdf' ? 'Read Report' : 'View Gallery'}</span>
-                        </div>
-                        <span class="group-hover:translate-x-1 transition-transform materia-symbols-outlined">→</span>
+        const aGrid = document.getElementById('academic-grid');
+        aGrid.innerHTML = academic.map((a, i) => `
+            <div onclick="openAcademic(${i})" class="group cursor-pointer bg-white/10 backdrop-blur-md rounded-xl border border-white/10 hover:border-primary transition-all p-6 flex flex-col" data-aos="fade-up">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="material-symbols-outlined text-3xl text-primary">${a.media === 'pdf' ? 'picture_as_pdf' : 'imagesmode'}</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-white leading-tight group-hover:text-primary transition-colors tracking-tight">${a.title}</h3>
+                        <span class="text-xs text-gray-400 uppercase tracking-widest">${a.course}</span>
                     </div>
+                </div>
+                <p class="text-sm text-gray-300 mb-4 line-clamp-2">${a.desc}</p>
+                <div class="mt-auto pt-4 border-t border-white/10 flex justify-between text-xs font-bold text-primary tracking-wide">
+                    <span>${a.media === 'pdf' ? 'Read Report' : 'View Gallery'}</span>
+                    <span>→</span>
                 </div>
             </div>
         `).join('');
 
-        const projectModal = document.getElementById('projectModal');
-        const certSection = document.getElementById('modalCertSection');
-        const certLink = document.getElementById('modalCertLink');
+        // --- 4. MODAL LOGIC ---
+        const pModal = document.getElementById('projectModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalFrame = document.getElementById('modalFrame');
+        const modalGallery = document.getElementById('modalGallery');
+        const certBtn = document.getElementById('modalCertBtn');
+        const scrollProgress = document.getElementById('scroll-progress');
 
-        // Modals elements
-        const modalImg = document.getElementById('modalProjectImage');
-        const modalFrame = document.getElementById('modalProjectFrame');
-        const modalGallery = document.getElementById('modalProjectGallery');
-        const galleryGrid = document.getElementById('galleryGrid');
+        // Scroll Progress (Optimized with requestAnimationFrame)
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const h = document.documentElement;
+                    const scroll = (h.scrollTop || document.body.scrollTop) / ((h.scrollHeight || document.body.scrollHeight) - h.clientHeight) * 100;
+                    scrollProgress.style.width = scroll + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
 
-        function resetModalMedia() {
-            // Hide all media types first
-            modalImg.classList.add('opacity-0', 'pointer-events-none');
-            modalFrame.classList.add('opacity-0', 'pointer-events-none');
-            modalGallery.classList.add('hidden', 'opacity-0', 'pointer-events-none');
-            // Stop PDF/Video
+        function resetModal() {
+            modalImg.classList.add('hidden');
+            modalFrame.classList.add('hidden');
+            modalGallery.classList.add('hidden');
             modalFrame.src = '';
+            certBtn.classList.add('hidden');
+            modalGallery.innerHTML = '';
         }
 
-        // Standard Project Open
-        function openProject(index) {
-            resetModalMedia();
-            const p = projects[index];
+        window.openProject = (i) => {
+            resetModal();
+            const p = projects[i];
+            document.getElementById('modalTitle').innerText = p.title;
+            document.getElementById('modalDesc').innerText = p.desc;
+            document.getElementById('modalTags').innerHTML = p.tags.map(t => `<span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-xs font-bold rounded">${t}</span>`).join('');
 
-            // Show Image
             modalImg.src = p.image;
-            modalImg.classList.remove('opacity-0', 'pointer-events-none');
+            modalImg.classList.remove('hidden');
 
-            document.getElementById('modalProjectTitle').textContent = p.title;
-            document.getElementById('modalProjectDate').textContent = `${p.subtitle} • ${p.date}`;
-            document.getElementById('modalProjectDesc').textContent = p.description;
-            document.getElementById('modalProjectTags').innerHTML = p.tags.map(t =>
-                `<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold border border-primary/20">${t}</span>`
-            ).join('');
-
-            // Cert Logic
-            if (p.certificate && p.certificate.trim() !== "") {
-                certSection.classList.remove('hidden');
-                certLink.href = p.certificate;
-            } else {
-                certSection.classList.add('hidden');
+            if (p.cert) {
+                certBtn.href = p.cert;
+                certBtn.classList.remove('hidden');
             }
 
-            projectModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Academic Project Open
-        function openAcademic(index) {
-            resetModalMedia();
-            const p = academicData[index];
-
-            // Text Content
-            document.getElementById('modalProjectTitle').textContent = p.title;
-            document.getElementById('modalProjectDate').textContent = `${p.course} • ACADEMIC PROJECT`;
-            document.getElementById('modalProjectDesc').textContent = p.description;
-            document.getElementById('modalProjectTags').innerHTML = p.tech.map(t =>
-                `<span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg text-xs font-bold border border-gray-200 dark:border-gray-700">${t}</span>`
-            ).join('');
-
-            // Hide Standard Cert Button
-            certSection.classList.add('hidden');
-
-            // Media Logic
-            if (p.mediaType === 'pdf') {
-                modalFrame.src = p.mediaSource;
-                // Small timeout to allow src to load to avoid flickering white
-                setTimeout(() => {
-                    modalFrame.classList.remove('opacity-0', 'pointer-events-none');
-                }, 100);
-            } else if (p.mediaType === 'gallery') {
-                modalGallery.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
-                // Force reflow
-                void modalGallery.offsetWidth;
-                modalGallery.classList.add('opacity-100', 'pointer-events-auto');
-
-                galleryGrid.innerHTML = p.mediaSource.map(src =>
-                    `<div class="aspect-square bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform border border-gray-200 dark:border-gray-700" onclick="window.open('${src}', '_blank')">
-                        <img src="${src}" class="w-full h-full object-cover">
-                    </div>`
-                ).join('');
-            } else {
-                // Fallback
-                modalImg.src = p.image;
-                modalImg.classList.remove('opacity-0', 'pointer-events-none');
-            }
-
-            projectModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeProject() {
-            projectModal.classList.remove('active');
-            document.body.style.overflow = '';
-            setTimeout(resetModalMedia, 300); // Clear after animation
-        }
-
-        // Certificate Modal Logic
-        const certModal = document.getElementById('certModal');
-        const certPreviewContainer = document.getElementById('certPreviewContainer');
-        const modalBtn = document.getElementById('modalActionBtn');
-        const modalDisabledBtn = document.getElementById('modalDisabledBtn');
-
-        window.openCert = function (title, issuer, year, pdf) {
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalIssuer').textContent = `${issuer} • ${year}`;
-
-            if (pdf && pdf !== 'undefined' && pdf.trim() !== "") {
-                certPreviewContainer.innerHTML = `<iframe src="${pdf}#toolbar=0" class="w-full h-full border-0"></iframe>`;
-                modalBtn.style.display = 'block';
-                modalDisabledBtn.style.display = 'none';
-                modalBtn.onclick = () => window.open(pdf, '_blank');
-            } else {
-                certPreviewContainer.innerHTML = `
-                    <div class="flex flex-col items-center opacity-50 text-gray-500">
-                        <span class="material-symbols-outlined text-6xl mb-4">folder_off</span>
-                        <p class="text-lg font-bold">Document Not Available</p>
-                        <p class="text-xs mt-1">Credential verified physically</p>
-                    </div>
-                `;
-                modalBtn.style.display = 'none';
-                modalDisabledBtn.style.display = 'block';
-            }
-            certModal.classList.add('active');
+            pModal.classList.add('active');
         };
 
-        window.closeCert = function () {
-            certModal.classList.remove('active');
-            setTimeout(() => certPreviewContainer.innerHTML = '', 300);
+        window.openAcademic = (i) => {
+            resetModal();
+            const a = academic[i];
+            document.getElementById('modalTitle').innerText = a.title;
+            document.getElementById('modalDesc').innerText = a.desc;
+            document.getElementById('modalTags').innerHTML = a.tags.map(t => `<span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-xs font-bold rounded">${t}</span>`).join('');
+
+            if (a.media === 'pdf') {
+                modalFrame.src = a.src;
+                modalFrame.classList.remove('hidden');
+            } else {
+                modalGallery.classList.remove('hidden');
+                modalGallery.innerHTML = a.src.map(img => `<img src="${img}" class="w-full h-32 object-cover rounded border border-gray-700">`).join('');
+            }
+
+            pModal.classList.add('active');
         };
 
-        window.onclick = function (event) {
-            if (event.target == projectModal) closeProject();
-            if (event.target == certModal) closeCert();
+        window.closeProject = () => pModal.classList.remove('active');
+
+        // Certificate Modal
+        const cModal = document.getElementById('certModal');
+        window.openCert = (title, issuer, year, pdf) => {
+            document.getElementById('certTitle').innerText = title;
+            const container = document.getElementById('certContainer');
+            if (pdf) {
+                container.innerHTML = `<iframe src="${pdf}" class="w-full h-full border-0"></iframe>`;
+            } else {
+                container.innerHTML = `<div class="text-center p-8"><span class="material-symbols-outlined text-6xl text-gray-300 mb-4">verified</span><p class="text-gray-500">Verified by ${issuer} (${year})</p></div>`;
+            }
+            cModal.classList.add('active');
+        };
+        window.closeCert = () => cModal.classList.remove('active');
+
+        // Close on Easy-Click (Outside)
+        window.onclick = (e) => {
+            if (e.target == pModal) closeProject();
+            if (e.target == cModal) closeCert();
+        };
+
+        // --- 5. TYPEWRITER ---
+        const roles = ["Network Engineer", "IoT Developer", "Fiber Optic Specialist"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentRole = roles[roleIndex];
+            const typeSpeed = isDeleting ? 50 : 100;
+            const element = document.getElementById('typewriter');
+
+            if (!element) return;
+
+            if (!isDeleting && charIndex < currentRole.length) {
+                element.textContent += currentRole.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, typeSpeed);
+            } else if (isDeleting && charIndex > 0) {
+                element.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(typeWriter, typeSpeed);
+            } else {
+                if (!isDeleting) {
+                    isDeleting = true;
+                    setTimeout(typeWriter, 2000);
+                } else {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeWriter, 500);
+                }
+            }
         }
+        document.addEventListener('DOMContentLoaded', typeWriter);
+
+        // --- 6. THEME TOGGLE ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check saved theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            themeToggle.checked = true;
+        }
+
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            } else {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Mobile Dock Animation
+        function animatePress(el) {
+            el.classList.add('animate-spring');
+            setTimeout(() => {
+                el.classList.remove('animate-spring');
+            }, 400);
+        }
+
+        // Real-time Jakarta Clock (New Footer Feature)
+        function updateJakartaTime() {
+            const timeDisplay = document.getElementById('jakarta-time');
+            if (timeDisplay) {
+                const now = new Date();
+                const options = {
+                    timeZone: 'Asia/Jakarta',
+                    hour12: false,
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                timeDisplay.textContent = now.toLocaleTimeString('en-GB', options);
+            }
+        }
+        setInterval(updateJakartaTime, 1000);
+        updateJakartaTime(); // Initial call
     </script>
 </body>
 
